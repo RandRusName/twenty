@@ -14,6 +14,7 @@ export const formatFieldMetadataItemAsColumnDefinition = ({
   position,
   field,
   objectMetadataItem,
+  locale,
   showLabel,
   labelWidth,
 }: FieldMetadataItemAsColumnDefinitionProps): ColumnDefinition<FieldMetadata> => {
@@ -26,6 +27,7 @@ export const formatFieldMetadataItemAsColumnDefinition = ({
     ...formatFieldMetadataItemAsFieldDefinition({
       field,
       objectMetadataItem,
+      locale,
       showLabel,
       labelWidth,
     }),

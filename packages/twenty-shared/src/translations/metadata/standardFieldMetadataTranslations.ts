@@ -1,5 +1,3 @@
-import { SOURCE_LOCALE } from '@/translations/constants/SourceLocale';
-
 import { type StandardFieldMetadataTranslationsByLocale } from './types';
 
 const buildFieldTranslationKey = (
@@ -11,7 +9,6 @@ export const STANDARD_FIELD_METADATA_TRANSLATIONS: Record<
   string,
   StandardFieldMetadataTranslationsByLocale
 > = {
-  [SOURCE_LOCALE]: {},
   'ru-RU': {
     [buildFieldTranslationKey('company', 'name')]: 'Название компании',
     [buildFieldTranslationKey('company', 'domainName')]: 'Домен',

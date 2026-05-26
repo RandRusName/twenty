@@ -10,19 +10,27 @@ export const useLocalizedObjectMetadataLabels = (
   objectMetadataItem: EnrichedObjectMetadataItem,
 ) => {
   const locale = useAppLocale();
+  const { nameSingular, labelSingular, labelPlural, isCustom } =
+    objectMetadataItem;
 
   return useMemo(() => {
+    const objectMetadataItemForLocalization = {
+      nameSingular,
+      labelSingular,
+      labelPlural,
+      isCustom,
+    };
     const localizedLabels = getLocalizedObjectMetadataLabels({
       locale,
-      objectMetadataItem,
+      objectMetadataItem: objectMetadataItemForLocalization,
     });
 
     return {
       ...localizedLabels,
       createRecordLabel: getCreateRecordLabel({
         locale,
-        objectMetadataItem,
+        objectMetadataItem: objectMetadataItemForLocalization,
       }),
     };
-  }, [locale, objectMetadataItem]);
+  }, [locale, nameSingular, labelSingular, labelPlural, isCustom]);
 };

@@ -5,6 +5,7 @@ import { type FieldMetadata } from '@/object-record/record-field/ui/types/FieldM
 import { getFieldButtonIcon } from '@/object-record/record-field/ui/utils/getFieldButtonIcon';
 import { i18n } from '@lingui/core';
 import { FieldMetadataType } from 'twenty-shared/types';
+import { type AppLocale } from 'twenty-shared/translations';
 import { getLocalizedFieldMetadataLabel } from 'twenty-shared/translations';
 import { normalizeLocale } from 'twenty-shared/utils';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
@@ -12,6 +13,8 @@ import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataIte
 export type FieldMetadataItemAsFieldDefinitionProps = {
   field: FieldMetadataItem;
   objectMetadataItem: EnrichedObjectMetadataItem;
+  // Pass locale from useAppLocale() in memoized hooks; optional elsewhere falls back to i18n.
+  locale?: AppLocale | string;
   showLabel?: boolean;
   labelWidth?: number;
 };
@@ -19,9 +22,11 @@ export type FieldMetadataItemAsFieldDefinitionProps = {
 export const formatFieldMetadataItemAsFieldDefinition = ({
   field,
   objectMetadataItem,
+  locale: localeFromProps,
   showLabel,
   labelWidth,
 }: FieldMetadataItemAsFieldDefinitionProps): FieldDefinition<FieldMetadata> => {
+  const locale = localeFromProps ?? normalizeLocale(i18n.locale);
   const relationObjectMetadataItem = field.relation?.targetObjectMetadata;
 
   const relationFieldMetadataId = field.relation?.targetFieldMetadata.id;
@@ -36,7 +41,7 @@ export const formatFieldMetadataItemAsFieldDefinition = ({
       : undefined;
 
   const localizedFieldLabel = getLocalizedFieldMetadataLabel({
-    locale: normalizeLocale(i18n.locale),
+    locale,
     objectNameSingular: objectMetadataItem.nameSingular,
     fieldMetadataItem: field,
   });

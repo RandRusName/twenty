@@ -1387,6 +1387,7 @@ msgstr ""
 #: src/modules/workflow/workflow-trigger/components/WorkflowEditTriggerDatabaseEventForm.tsx
 #: src/modules/workflow/workflow-steps/workflow-actions/find-records-action/components/WorkflowObjectDropdownContent.tsx
 #: src/modules/workflow/workflow-steps/workflow-actions/find-records-action/components/WorkflowObjectDropdownContent.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
 msgid "Advanced"
 msgstr "Geavanceerd"
 
@@ -1754,6 +1755,11 @@ msgstr "Alle taken opgepakt. Houd het momentum vast."
 msgid "All the applications currently installed on this workspace"
 msgstr ""
 
+#. js-lingui-id: JOwsLs
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
+msgid "All the basic field types you need to start"
+msgstr ""
+
 #. js-lingui-id: XuuWVF
 #: src/modules/settings/roles/role-permissions/object-level-permissions/components/SettingsRolePermissionsObjectLevelObjectPicker.tsx
 msgid "All the standard objects"
@@ -1856,6 +1862,7 @@ msgid "Already in navbar"
 msgstr ""
 
 #. js-lingui-id: uprOiC
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Amber"
 msgstr "Amber"
@@ -2284,16 +2291,14 @@ msgstr "Weet je zeker dat je deze vaardigheid wilt verwijderen? Deze actie kan n
 msgid "Are you sure you want to delete this tool? This action cannot be undone."
 msgstr ""
 
-#. js-lingui-id: EySr+c
-#. placeholder {0}: objectMetadataItem.labelPlural
+#. js-lingui-id: 2g0InT
 #: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
-msgid "Are you sure you want to destroy these {0}? They won't be recoverable anymore."
+msgid "Are you sure you want to destroy these {labelPlural}? They won't be recoverable anymore."
 msgstr ""
 
-#. js-lingui-id: GfgNgF
-#. placeholder {0}: objectMetadataItem.labelSingular
+#. js-lingui-id: mm3eBC
 #: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
-msgid "Are you sure you want to destroy this {0}? It cannot be recovered anymore."
+msgid "Are you sure you want to destroy this {labelSingular}? It cannot be recovered anymore."
 msgstr ""
 
 #. js-lingui-id: +UIjOX
@@ -2301,16 +2306,14 @@ msgstr ""
 msgid "Are you sure you want to reset this variable?"
 msgstr ""
 
-#. js-lingui-id: RzJL8J
-#. placeholder {0}: objectMetadataItem.labelPlural
+#. js-lingui-id: KhaMrq
 #: src/modules/command-menu-item/engine-command/record/components/RestoreRecordsCommand.tsx
-msgid "Are you sure you want to restore these {0}?"
+msgid "Are you sure you want to restore these {labelPlural}?"
 msgstr ""
 
-#. js-lingui-id: XTKWxO
-#. placeholder {0}: objectMetadataItem.labelSingular
+#. js-lingui-id: SJ60Q9
 #: src/modules/command-menu-item/engine-command/record/components/RestoreRecordsCommand.tsx
-msgid "Are you sure you want to restore this {0}?"
+msgid "Are you sure you want to restore this {labelSingular}?"
 msgstr ""
 
 #. js-lingui-id: 9JFf0y
@@ -2691,6 +2694,11 @@ msgstr "Basis-URL"
 msgid "Base URL is required"
 msgstr "Basis-URL is vereist"
 
+#. js-lingui-id: 0wJVK+
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
+msgid "Basic"
+msgstr ""
+
 #. js-lingui-id: /xLNEx
 #: src/modules/activities/emails/components/EmailComposerFields.tsx
 #: src/modules/activities/emails/components/EmailComposerFields.tsx
@@ -2772,6 +2780,7 @@ msgid "Blocklist"
 msgstr "Blokkeringslijst"
 
 #. js-lingui-id: Zn5crm
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Blue"
 msgstr "Blauw"
@@ -2828,11 +2837,13 @@ msgid "Brief explanation of this output field"
 msgstr "Korte uitleg van dit uitvoerveld"
 
 #. js-lingui-id: CSDv65
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Bronze"
 msgstr "Brons"
 
 #. js-lingui-id: JLxwQS
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Brown"
 msgstr "Bruin"
@@ -4270,6 +4281,11 @@ msgstr "Maak een nieuw contact aan en koppel deze aan een bedrijf. Details: "
 msgid "Create a record"
 msgstr "Creëer een record"
 
+#. js-lingui-id: LhCBaa
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
+msgid "Create a relation with other objects"
+msgstr ""
+
 #. js-lingui-id: ZITKtg
 #: src/pages/settings/ai/components/SettingsAgentRoleTab.tsx
 msgid "Create a role to define permissions for this agent."
@@ -4505,6 +4521,7 @@ msgid "credits/period"
 msgstr ""
 
 #. js-lingui-id: e73uuf
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Crimson"
 msgstr "Karmozijn"
@@ -4698,6 +4715,7 @@ msgid "Customize your workspace security"
 msgstr "Pas de beveiliging van je werkruimte aan"
 
 #. js-lingui-id: fFwMZv
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Cyan"
 msgstr "Cyaan"
@@ -7790,6 +7808,7 @@ msgid "Go to Settings"
 msgstr "Ga naar Instellingen"
 
 #. js-lingui-id: FYlHHU
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Gold"
 msgstr "Goud"
@@ -7836,11 +7855,13 @@ msgid "GraphQL API Playground"
 msgstr "GraphQL API-speeltuin"
 
 #. js-lingui-id: hT/xCE
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Grass"
 msgstr "Gras"
 
 #. js-lingui-id: qS5//Q
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Gray"
 msgstr "Grijs"
@@ -7856,6 +7877,7 @@ msgid "Greek"
 msgstr "Grieks"
 
 #. js-lingui-id: VmkjGB
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Green"
 msgstr "Groen"
@@ -8737,6 +8759,7 @@ msgid "Invite your team"
 msgstr "Nodig je team uit"
 
 #. js-lingui-id: CUvG5b
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Iris"
 msgstr "Iris"
@@ -8867,6 +8890,7 @@ msgid "Items to iterate over"
 msgstr "Items om over te itereren"
 
 #. js-lingui-id: J6OYmT
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Jade"
 msgstr "Jade"
@@ -9304,6 +9328,7 @@ msgid "Light"
 msgstr "Licht"
 
 #. js-lingui-id: 9EqSGz
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Lime"
 msgstr "Limoen"
@@ -9907,6 +9932,7 @@ msgid "Min range"
 msgstr "Min bereik"
 
 #. js-lingui-id: 5IrCQY
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Mint"
 msgstr "Mint"
@@ -10058,6 +10084,11 @@ msgstr "Meer ({remainingCount})"
 #: src/modules/command-menu-item/components/RecordIndexCommandMenuDropdown.tsx
 msgid "More actions"
 msgstr "Meer acties"
+
+#. js-lingui-id: TzzH0D
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
+msgid "More advanced fields for advanced projects"
+msgstr ""
 
 #. js-lingui-id: 3Siwmw
 #: src/modules/object-record/record-table/record-table-footer/components/RecordTableColumnAggregateFooterMenuContent.tsx
@@ -10296,11 +10327,6 @@ msgstr "Verloopt nooit"
 #: src/modules/object-record/record-board/record-board-column/components/RecordBoardColumnNewRecordButton.tsx
 msgid "New"
 msgstr "Nieuw"
-
-#. js-lingui-id: LfvvW4
-#: src/modules/side-panel/hooks/useOpenRecordInSidePanel.ts
-msgid "New {objectLabelSingular}"
-msgstr "Nieuwe {objectLabelSingular}"
 
 #. js-lingui-id: Kcr9Fr
 #: src/modules/settings/accounts/components/SettingsNewAccountSection.tsx
@@ -11632,6 +11658,7 @@ msgid "Or"
 msgstr "Of"
 
 #. js-lingui-id: 4OE5Sf
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Orange"
 msgstr "Oranje"
@@ -12050,6 +12077,7 @@ msgid "Pin tab"
 msgstr ""
 
 #. js-lingui-id: 2FIjLb
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Pink"
 msgstr "Roze"
@@ -12159,6 +12187,7 @@ msgid "Please type in your email to confirm."
 msgstr "Vul alstublieft uw e-mail in ter bevestiging."
 
 #. js-lingui-id: Ij2ljU
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Plum"
 msgstr "Pruim"
@@ -12456,6 +12485,7 @@ msgid "Publish your app to the marketplace so others can install it"
 msgstr ""
 
 #. js-lingui-id: mF9LxA
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Purple"
 msgstr "Paars"
@@ -12705,6 +12735,7 @@ msgid "Records"
 msgstr "Records"
 
 #. js-lingui-id: wRTiSD
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Red"
 msgstr "Rood"
@@ -12775,6 +12806,7 @@ msgstr "Regio waar inferentiegegevens worden verwerkt (optioneel)"
 
 #. js-lingui-id: h9AYFD
 #: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
 #: src/modules/settings/data-model/fields/forms/components/SettingsObjectNewFieldSelector.tsx
 #: src/modules/settings/data-model/fields/forms/components/SettingsObjectNewFieldSelector.tsx
 msgid "Relation"
@@ -13324,6 +13356,7 @@ msgid "Row-level security"
 msgstr "Beveiliging op rijniveau"
 
 #. js-lingui-id: 7jTlsu
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Ruby"
 msgstr "Robijn"
@@ -14442,6 +14475,7 @@ msgid "Skip the junction object (similar to many-to-many relations)"
 msgstr "Sla het koppelingsobject over (vergelijkbaar met veel-op-veel-relaties)"
 
 #. js-lingui-id: BIZl8w
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Sky"
 msgstr "Lucht"
@@ -15778,6 +15812,7 @@ msgid "tokens"
 msgstr "tokens"
 
 #. js-lingui-id: oK9ArN
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Tomato"
 msgstr "Tomaat"
@@ -16039,6 +16074,7 @@ msgid "Turn Not Found"
 msgstr ""
 
 #. js-lingui-id: EdHWDU
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Turquoise"
 msgstr "Turkoois"
@@ -17020,6 +17056,7 @@ msgid "Views"
 msgstr "Weergaven"
 
 #. js-lingui-id: eedtPL
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Violet"
 msgstr "Violet"
@@ -17605,6 +17642,7 @@ msgid "years"
 msgstr "jaren"
 
 #. js-lingui-id: QyCqHT
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Yellow"
 msgstr "Geel"

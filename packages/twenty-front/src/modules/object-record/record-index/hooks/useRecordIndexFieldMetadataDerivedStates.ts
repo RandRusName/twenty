@@ -1,5 +1,6 @@
 import { labelIdentifierFieldMetadataItemSelector } from '@/object-metadata/states/labelIdentifierFieldMetadataItemSelector';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
 import { currentRecordFieldsComponentState } from '@/object-record/record-field/states/currentRecordFieldsComponentState';
 import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomComponentStateValue';
@@ -10,6 +11,7 @@ export const useRecordIndexFieldMetadataDerivedStates = (
   objectMetadataItem: EnrichedObjectMetadataItem | undefined,
   recordIndexId?: string | undefined,
 ) => {
+  const locale = useAppLocale();
   const fieldMetadataItems = objectMetadataItem?.fields ?? [];
 
   const fieldMetadataItemByFieldMetadataItemId = Object.fromEntries(
@@ -38,6 +40,7 @@ export const useRecordIndexFieldMetadataDerivedStates = (
           formatFieldMetadataItemAsColumnDefinition({
             field: fieldMetadataItem,
             objectMetadataItem,
+            locale,
             position:
               recordFieldByFieldMetadataItemId[fieldMetadataItem.id]
                 ?.position ?? 0,

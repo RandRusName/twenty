@@ -13,6 +13,7 @@ import { useUpdateOneRecord } from '@/object-record/hooks/useUpdateOneRecord';
 import { useIsRecordReadOnly } from '@/object-record/read-only/hooks/useIsRecordReadOnly';
 import { isRecordFieldReadOnly } from '@/object-record/read-only/utils/isRecordFieldReadOnly';
 import { RecordFieldsScopeContextProvider } from '@/object-record/record-field-list/contexts/RecordFieldsScopeContext';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useFieldListFieldMetadataItems } from '@/object-record/record-field-list/hooks/useFieldListFieldMetadataItems';
 import {
   FieldContext,
@@ -93,6 +94,7 @@ const StyledPropertyBoxContainer = styled.div`
 export const CalendarEventDetails = ({
   calendarEvent,
 }: CalendarEventDetailsProps) => {
+  const locale = useAppLocale();
   const { t } = useLingui();
   const { objectMetadataItem } = useObjectMetadataItem({
     objectNameSingular: CoreObjectNameSingular.CalendarEvent,
@@ -160,6 +162,7 @@ export const CalendarEventDetails = ({
     const fieldDefinition = formatFieldMetadataItemAsFieldDefinition({
       field: fieldMetadataItem,
       objectMetadataItem,
+      locale,
       showLabel: true,
       labelWidth: 72,
     });

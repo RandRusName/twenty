@@ -7,12 +7,14 @@ import { filterAvailableTableColumns } from '@/object-record/utils/filterAvailab
 import { availableFieldMetadataItemsForFilterFamilySelector } from '@/object-metadata/states/availableFieldMetadataItemsForFilterFamilySelector';
 import { availableFieldMetadataItemsForSortFamilySelector } from '@/object-metadata/states/availableFieldMetadataItemsForSortFamilySelector';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useAtomFamilySelectorValue } from '@/ui/utilities/state/jotai/hooks/useAtomFamilySelectorValue';
 import { useMemo } from 'react';
 
 export const useColumnDefinitionsFromObjectMetadata = (
   objectMetadataItem: EnrichedObjectMetadataItem,
 ) => {
+  const locale = useAppLocale();
   const filterableFieldMetadataItems = useAtomFamilySelectorValue(
     availableFieldMetadataItemsForFilterFamilySelector,
     {
@@ -41,6 +43,7 @@ export const useColumnDefinitionsFromObjectMetadata = (
           position: index,
           field,
           objectMetadataItem,
+          locale,
         }),
       )
       .filter(filterAvailableTableColumns)
@@ -66,6 +69,7 @@ export const useColumnDefinitionsFromObjectMetadata = (
       });
   }, [
     filterableFieldMetadataItems,
+    locale,
     sortableFieldMetadataItems,
     objectMetadataItem,
   ]);

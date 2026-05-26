@@ -41,6 +41,7 @@ export const relationFieldDefinition = formatFieldMetadataItemAsFieldDefinition(
   {
     field: relationFieldMetadataItem!,
     objectMetadataItem: mockedPersonObjectMetadataItem,
+    locale: 'en',
   },
 );
 
@@ -75,6 +76,7 @@ const phonesFieldMetadataItem = mockedPersonObjectMetadataItem.fields?.find(
 export const phonesFieldDefinition = formatFieldMetadataItemAsFieldDefinition({
   field: phonesFieldMetadataItem!,
   objectMetadataItem: mockedPersonObjectMetadataItem,
+  locale: 'en',
 });
 
 export const ratingFieldDefinition: FieldDefinition<FieldRatingMetadata> = {
@@ -103,6 +105,7 @@ const booleanFieldMetadataItem = mockedCompanyObjectMetadataItem?.fields?.find(
 export const booleanFieldDefinition = formatFieldMetadataItemAsFieldDefinition({
   field: booleanFieldMetadataItem!,
   objectMetadataItem: mockedCompanyObjectMetadataItem,
+  locale: 'en',
 });
 
 export const actorFieldDefinition: FieldDefinition<FieldActorMetadata> = {

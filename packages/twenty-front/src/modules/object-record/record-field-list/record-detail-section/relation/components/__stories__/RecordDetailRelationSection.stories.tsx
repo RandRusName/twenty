@@ -56,6 +56,7 @@ const meta: Meta<typeof RecordDetailRelationSection> = {
                   ({ name }) => name === 'people',
                 )!,
                 objectMetadataItem: mockedCompanyObjectMetadataItem,
+                locale: 'en',
               }),
               isRecordFieldReadOnly: false,
             }}

@@ -37,13 +37,13 @@ const StyledToggleContainer = styled.label`
 type AdvancedSettingsToggleProps = {
   isAdvancedModeEnabled: boolean;
   setIsAdvancedModeEnabled: (enabled: boolean) => void;
-  label?: string;
+  label: string;
 };
 
 export const AdvancedSettingsToggle = ({
   isAdvancedModeEnabled,
   setIsAdvancedModeEnabled,
-  label = 'Advanced:',
+  label,
 }: AdvancedSettingsToggleProps) => {
   const { theme } = useContext(ThemeContext);
 

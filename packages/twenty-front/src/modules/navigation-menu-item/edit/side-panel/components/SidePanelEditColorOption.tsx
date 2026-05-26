@@ -8,10 +8,11 @@ import { ThemeColorPickerMenu } from '@/ui/input/components/ThemeColorPickerMenu
 import { DropdownContent } from '@/ui/layout/dropdown/components/DropdownContent';
 import { useCloseDropdown } from '@/ui/layout/dropdown/hooks/useCloseDropdown';
 import { styled } from '@linaria/react';
+import { getTranslatedThemeColorLabels } from '@/ui/input/utils/getTranslatedThemeColorLabels';
 import { useLingui } from '@lingui/react/macro';
+import { useMemo } from 'react';
 import { capitalize } from 'twenty-shared/utils';
 import { IconColorSwatch } from 'twenty-ui/display';
-import { DEFAULT_COLOR_LABELS } from 'twenty-ui/navigation';
 import { type ThemeColor } from 'twenty-ui/theme';
 import { themeCssVariables } from 'twenty-ui/theme-constants';
 
@@ -31,7 +32,11 @@ export const SidePanelEditColorOption = ({
   navigationMenuItemId,
   color,
 }: SidePanelEditColorOptionProps) => {
-  const { t } = useLingui();
+  const { i18n, t } = useLingui();
+  const colorLabels = useMemo(
+    () => getTranslatedThemeColorLabels(i18n),
+    [i18n],
+  );
   const { updateNavigationMenuItemInDraft } =
     useUpdateNavigationMenuItemInDraft();
   const { closeDropdown } = useCloseDropdown();
@@ -39,7 +44,7 @@ export const SidePanelEditColorOption = ({
   const { selectedItem } = useSelectedNavigationMenuItemEditItem();
 
   const themeColor = color ?? 'gray';
-  const colorLabel = DEFAULT_COLOR_LABELS[themeColor] ?? capitalize(themeColor);
+  const colorLabel = colorLabels[themeColor] ?? capitalize(themeColor);
 
   const handleSelectColor = (selectedColor: ThemeColor) => {
     updateNavigationMenuItemInDraft(navigationMenuItemId, {

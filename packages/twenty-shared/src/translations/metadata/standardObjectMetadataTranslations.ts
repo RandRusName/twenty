@@ -1,88 +1,9 @@
-import { SOURCE_LOCALE } from '@/translations/constants/SourceLocale';
-
 import { type StandardObjectMetadataTranslationsByLocale } from './types';
 
 export const STANDARD_OBJECT_METADATA_TRANSLATIONS: Record<
   string,
   StandardObjectMetadataTranslationsByLocale
 > = {
-  [SOURCE_LOCALE]: {
-    company: {
-      labelSingular: 'Company',
-      labelPlural: 'Companies',
-      accusativeSingular: 'Company',
-    },
-    person: {
-      labelSingular: 'Person',
-      labelPlural: 'People',
-      accusativeSingular: 'Person',
-    },
-    opportunity: {
-      labelSingular: 'Opportunity',
-      labelPlural: 'Opportunities',
-      accusativeSingular: 'Opportunity',
-    },
-    task: {
-      labelSingular: 'Task',
-      labelPlural: 'Tasks',
-      accusativeSingular: 'Task',
-    },
-    note: {
-      labelSingular: 'Note',
-      labelPlural: 'Notes',
-      accusativeSingular: 'Note',
-    },
-    attachment: {
-      labelSingular: 'Attachment',
-      labelPlural: 'Attachments',
-      accusativeSingular: 'Attachment',
-    },
-    calendarEvent: {
-      labelSingular: 'Calendar event',
-      labelPlural: 'Calendar events',
-      accusativeSingular: 'Calendar event',
-    },
-    message: {
-      labelSingular: 'Message',
-      labelPlural: 'Messages',
-      accusativeSingular: 'Message',
-    },
-    workflow: {
-      labelSingular: 'Workflow',
-      labelPlural: 'Workflows',
-      accusativeSingular: 'Workflow',
-    },
-    dashboard: {
-      labelSingular: 'Dashboard',
-      labelPlural: 'Dashboards',
-      accusativeSingular: 'Dashboard',
-    },
-    workflowVersion: {
-      labelSingular: 'Workflow Version',
-      labelPlural: 'Workflow Versions',
-      accusativeSingular: 'Workflow Version',
-    },
-    workflowRun: {
-      labelSingular: 'Workflow Run',
-      labelPlural: 'Workflow Runs',
-      accusativeSingular: 'Workflow Run',
-    },
-    workspaceMember: {
-      labelSingular: 'Workspace Member',
-      labelPlural: 'Workspace Members',
-      accusativeSingular: 'Workspace Member',
-    },
-    timelineActivity: {
-      labelSingular: 'Timeline Activity',
-      labelPlural: 'Timeline Activities',
-      accusativeSingular: 'Timeline Activity',
-    },
-    messageThread: {
-      labelSingular: 'Message Thread',
-      labelPlural: 'Message Threads',
-      accusativeSingular: 'Message Thread',
-    },
-  },
   'ru-RU': {
     company: {
       labelSingular: 'Компания',

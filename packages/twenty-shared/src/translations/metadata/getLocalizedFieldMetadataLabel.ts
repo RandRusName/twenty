@@ -1,4 +1,5 @@
 import { type AppLocale } from '@/translations/constants/AppLocales';
+import { SOURCE_LOCALE } from '@/translations/constants/SourceLocale';
 import { normalizeLocale } from '@/utils/validation/normalizeLocale';
 
 import { getStandardFieldMetadataTranslationKey } from './standardFieldMetadataTranslations';
@@ -20,6 +21,11 @@ export const getLocalizedFieldMetadataLabel = ({
   fieldMetadataItem: FieldMetadataItemForLocalization;
 }): string => {
   const fallbackLabel = fieldMetadataItem.label ?? '';
+  const normalizedLocale = normalizeLocale(locale);
+
+  if (normalizedLocale === SOURCE_LOCALE) {
+    return fallbackLabel;
+  }
 
   if (fieldMetadataItem.isCustom === true) {
     return fallbackLabel;
@@ -31,7 +37,6 @@ export const getLocalizedFieldMetadataLabel = ({
     return fallbackLabel;
   }
 
-  const normalizedLocale = normalizeLocale(locale);
   const translationKey = getStandardFieldMetadataTranslationKey(
     objectNameSingular,
     fieldName,

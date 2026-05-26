@@ -1,13 +1,11 @@
 import { DropdownMenuItemsContainer } from '@/ui/layout/dropdown/components/DropdownMenuItemsContainer';
 import { DropdownMenuSearchInput } from '@/ui/layout/dropdown/components/DropdownMenuSearchInput';
 import { DropdownMenuSeparator } from '@/ui/layout/dropdown/components/DropdownMenuSeparator';
-import { t } from '@lingui/core/macro';
+import { getTranslatedThemeColorLabels } from '@/ui/input/utils/getTranslatedThemeColorLabels';
+import { useLingui } from '@lingui/react/macro';
 import { isNonEmptyString } from '@sniptt/guards';
-import { useState } from 'react';
-import {
-  DEFAULT_COLOR_LABELS,
-  MenuItemSelectColor,
-} from 'twenty-ui/navigation';
+import { useMemo, useState } from 'react';
+import { MenuItemSelectColor } from 'twenty-ui/navigation';
 import { type ThemeColor, MAIN_COLOR_NAMES } from 'twenty-ui/theme';
 
 type ThemeColorPickerMenuProps = {
@@ -19,7 +17,12 @@ export const ThemeColorPickerMenu = ({
   selectedColor,
   onSelectColor,
 }: ThemeColorPickerMenuProps) => {
+  const { i18n, t } = useLingui();
   const [searchValue, setSearchValue] = useState('');
+  const colorLabels = useMemo(
+    () => getTranslatedThemeColorLabels(i18n),
+    [i18n],
+  );
 
   const query = searchValue.trim().toLowerCase();
 
@@ -27,7 +30,7 @@ export const ThemeColorPickerMenu = ({
     ? MAIN_COLOR_NAMES.filter(
         (colorName) =>
           colorName.toLowerCase().includes(query) ||
-          (DEFAULT_COLOR_LABELS[colorName] ?? '').toLowerCase().includes(query),
+          (colorLabels[colorName] ?? '').toLowerCase().includes(query),
       )
     : MAIN_COLOR_NAMES;
 
@@ -46,7 +49,7 @@ export const ThemeColorPickerMenu = ({
             onClick={() => onSelectColor(colorName)}
             color={colorName}
             selected={colorName === selectedColor}
-            colorLabels={DEFAULT_COLOR_LABELS}
+            colorLabels={colorLabels}
           />
         ))}
       </DropdownMenuItemsContainer>

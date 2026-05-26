@@ -1387,6 +1387,7 @@ msgstr ""
 #: src/modules/workflow/workflow-trigger/components/WorkflowEditTriggerDatabaseEventForm.tsx
 #: src/modules/workflow/workflow-steps/workflow-actions/find-records-action/components/WorkflowObjectDropdownContent.tsx
 #: src/modules/workflow/workflow-steps/workflow-actions/find-records-action/components/WorkflowObjectDropdownContent.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
 msgid "Advanced"
 msgstr "Pokročilé"
 
@@ -1754,6 +1755,11 @@ msgstr "Všechny úkoly vyřízeny. Udržujte tempo."
 msgid "All the applications currently installed on this workspace"
 msgstr ""
 
+#. js-lingui-id: JOwsLs
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
+msgid "All the basic field types you need to start"
+msgstr ""
+
 #. js-lingui-id: XuuWVF
 #: src/modules/settings/roles/role-permissions/object-level-permissions/components/SettingsRolePermissionsObjectLevelObjectPicker.tsx
 msgid "All the standard objects"
@@ -1856,6 +1862,7 @@ msgid "Already in navbar"
 msgstr "Už je v navigační liště"
 
 #. js-lingui-id: uprOiC
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Amber"
 msgstr "Jantarová"
@@ -2284,16 +2291,14 @@ msgstr "Opravdu chcete smazat tuto dovednost? Tuto akci nelze vrátit zpět."
 msgid "Are you sure you want to delete this tool? This action cannot be undone."
 msgstr ""
 
-#. js-lingui-id: EySr+c
-#. placeholder {0}: objectMetadataItem.labelPlural
+#. js-lingui-id: 2g0InT
 #: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
-msgid "Are you sure you want to destroy these {0}? They won't be recoverable anymore."
+msgid "Are you sure you want to destroy these {labelPlural}? They won't be recoverable anymore."
 msgstr ""
 
-#. js-lingui-id: GfgNgF
-#. placeholder {0}: objectMetadataItem.labelSingular
+#. js-lingui-id: mm3eBC
 #: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
-msgid "Are you sure you want to destroy this {0}? It cannot be recovered anymore."
+msgid "Are you sure you want to destroy this {labelSingular}? It cannot be recovered anymore."
 msgstr ""
 
 #. js-lingui-id: +UIjOX
@@ -2301,16 +2306,14 @@ msgstr ""
 msgid "Are you sure you want to reset this variable?"
 msgstr ""
 
-#. js-lingui-id: RzJL8J
-#. placeholder {0}: objectMetadataItem.labelPlural
+#. js-lingui-id: KhaMrq
 #: src/modules/command-menu-item/engine-command/record/components/RestoreRecordsCommand.tsx
-msgid "Are you sure you want to restore these {0}?"
+msgid "Are you sure you want to restore these {labelPlural}?"
 msgstr ""
 
-#. js-lingui-id: XTKWxO
-#. placeholder {0}: objectMetadataItem.labelSingular
+#. js-lingui-id: SJ60Q9
 #: src/modules/command-menu-item/engine-command/record/components/RestoreRecordsCommand.tsx
-msgid "Are you sure you want to restore this {0}?"
+msgid "Are you sure you want to restore this {labelSingular}?"
 msgstr ""
 
 #. js-lingui-id: 9JFf0y
@@ -2691,6 +2694,11 @@ msgstr "Základní URL"
 msgid "Base URL is required"
 msgstr "Základní adresa URL je vyžadována"
 
+#. js-lingui-id: 0wJVK+
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
+msgid "Basic"
+msgstr ""
+
 #. js-lingui-id: /xLNEx
 #: src/modules/activities/emails/components/EmailComposerFields.tsx
 #: src/modules/activities/emails/components/EmailComposerFields.tsx
@@ -2772,6 +2780,7 @@ msgid "Blocklist"
 msgstr "Blacklist"
 
 #. js-lingui-id: Zn5crm
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Blue"
 msgstr "Modrá"
@@ -2828,11 +2837,13 @@ msgid "Brief explanation of this output field"
 msgstr "Stručné vysvětlení tohoto výstupního pole"
 
 #. js-lingui-id: CSDv65
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Bronze"
 msgstr "Bronzová"
 
 #. js-lingui-id: JLxwQS
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Brown"
 msgstr "Hnědá"
@@ -4270,6 +4281,11 @@ msgstr "Vytvořte nový kontakt a propojte ho se společností. Podrobnosti: "
 msgid "Create a record"
 msgstr "Vytvořit záznam"
 
+#. js-lingui-id: LhCBaa
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
+msgid "Create a relation with other objects"
+msgstr ""
+
 #. js-lingui-id: ZITKtg
 #: src/pages/settings/ai/components/SettingsAgentRoleTab.tsx
 msgid "Create a role to define permissions for this agent."
@@ -4505,6 +4521,7 @@ msgid "credits/period"
 msgstr ""
 
 #. js-lingui-id: e73uuf
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Crimson"
 msgstr "Karmínová"
@@ -4698,6 +4715,7 @@ msgid "Customize your workspace security"
 msgstr "Přizpůsobit zabezpečení vašeho pracovního prostoru"
 
 #. js-lingui-id: fFwMZv
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Cyan"
 msgstr "Azurová"
@@ -7790,6 +7808,7 @@ msgid "Go to Settings"
 msgstr "Přejít do nastavení"
 
 #. js-lingui-id: FYlHHU
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Gold"
 msgstr "Zlatá"
@@ -7836,11 +7855,13 @@ msgid "GraphQL API Playground"
 msgstr "GraphQL API Hřiště"
 
 #. js-lingui-id: hT/xCE
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Grass"
 msgstr "Trávová"
 
 #. js-lingui-id: qS5//Q
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Gray"
 msgstr "Šedá"
@@ -7856,6 +7877,7 @@ msgid "Greek"
 msgstr "Řečtina"
 
 #. js-lingui-id: VmkjGB
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Green"
 msgstr "Zelená"
@@ -8737,6 +8759,7 @@ msgid "Invite your team"
 msgstr "Pozvěte svůj tým"
 
 #. js-lingui-id: CUvG5b
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Iris"
 msgstr "Iris"
@@ -8867,6 +8890,7 @@ msgid "Items to iterate over"
 msgstr "Položky k iterování"
 
 #. js-lingui-id: J6OYmT
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Jade"
 msgstr "Jadeitová"
@@ -9304,6 +9328,7 @@ msgid "Light"
 msgstr "Světlý"
 
 #. js-lingui-id: 9EqSGz
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Lime"
 msgstr "Limetková"
@@ -9907,6 +9932,7 @@ msgid "Min range"
 msgstr "Minimální rozsah"
 
 #. js-lingui-id: 5IrCQY
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Mint"
 msgstr "Mátová"
@@ -10058,6 +10084,11 @@ msgstr "Více ({remainingCount})"
 #: src/modules/command-menu-item/components/RecordIndexCommandMenuDropdown.tsx
 msgid "More actions"
 msgstr "Další akce"
+
+#. js-lingui-id: TzzH0D
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
+msgid "More advanced fields for advanced projects"
+msgstr ""
 
 #. js-lingui-id: 3Siwmw
 #: src/modules/object-record/record-table/record-table-footer/components/RecordTableColumnAggregateFooterMenuContent.tsx
@@ -10296,11 +10327,6 @@ msgstr "Nikdy nevyprší"
 #: src/modules/object-record/record-board/record-board-column/components/RecordBoardColumnNewRecordButton.tsx
 msgid "New"
 msgstr "Nový"
-
-#. js-lingui-id: LfvvW4
-#: src/modules/side-panel/hooks/useOpenRecordInSidePanel.ts
-msgid "New {objectLabelSingular}"
-msgstr "Nový {objectLabelSingular}"
 
 #. js-lingui-id: Kcr9Fr
 #: src/modules/settings/accounts/components/SettingsNewAccountSection.tsx
@@ -11632,6 +11658,7 @@ msgid "Or"
 msgstr "Nebo"
 
 #. js-lingui-id: 4OE5Sf
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Orange"
 msgstr "Oranžová"
@@ -12050,6 +12077,7 @@ msgid "Pin tab"
 msgstr ""
 
 #. js-lingui-id: 2FIjLb
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Pink"
 msgstr "Růžová"
@@ -12159,6 +12187,7 @@ msgid "Please type in your email to confirm."
 msgstr "Zadejte prosím svůj e-mail pro potvrzení."
 
 #. js-lingui-id: Ij2ljU
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Plum"
 msgstr "Švestková"
@@ -12456,6 +12485,7 @@ msgid "Publish your app to the marketplace so others can install it"
 msgstr ""
 
 #. js-lingui-id: mF9LxA
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Purple"
 msgstr "Fialová"
@@ -12705,6 +12735,7 @@ msgid "Records"
 msgstr "Záznamy"
 
 #. js-lingui-id: wRTiSD
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Red"
 msgstr "Červená"
@@ -12775,6 +12806,7 @@ msgstr "Region, kde jsou zpracovávána inferenční data (volitelné)"
 
 #. js-lingui-id: h9AYFD
 #: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeCategoryLabel.ts
 #: src/modules/settings/data-model/fields/forms/components/SettingsObjectNewFieldSelector.tsx
 #: src/modules/settings/data-model/fields/forms/components/SettingsObjectNewFieldSelector.tsx
 msgid "Relation"
@@ -13324,6 +13356,7 @@ msgid "Row-level security"
 msgstr "Zabezpečení na úrovni řádků"
 
 #. js-lingui-id: 7jTlsu
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Ruby"
 msgstr "Rubínová"
@@ -14442,6 +14475,7 @@ msgid "Skip the junction object (similar to many-to-many relations)"
 msgstr "Přeskočit spojovací objekt (podobné vztahům mnoho-na-mnoho)"
 
 #. js-lingui-id: BIZl8w
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Sky"
 msgstr "Nebesky modrá"
@@ -15776,6 +15810,7 @@ msgid "tokens"
 msgstr "tokeny"
 
 #. js-lingui-id: oK9ArN
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Tomato"
 msgstr "Rajčatová"
@@ -16037,6 +16072,7 @@ msgid "Turn Not Found"
 msgstr ""
 
 #. js-lingui-id: EdHWDU
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Turquoise"
 msgstr "Tyrkysová"
@@ -17018,6 +17054,7 @@ msgid "Views"
 msgstr "Zobrazení"
 
 #. js-lingui-id: eedtPL
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Violet"
 msgstr "Fialková"
@@ -17603,6 +17640,7 @@ msgid "years"
 msgstr "let"
 
 #. js-lingui-id: QyCqHT
+#: src/modules/ui/input/utils/getTranslatedThemeColorLabels.ts
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
 msgid "Yellow"
 msgstr "Žlutá"

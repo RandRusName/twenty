@@ -3,6 +3,7 @@ import { RecordFieldComponentInstanceContext } from '@/object-record/record-fiel
 
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { formatFieldMetadataItemAsFieldDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsFieldDefinition';
 import { recordFieldListCellEditModePositionComponentState } from '@/object-record/record-field-list/states/recordFieldListCellEditModePositionComponentState';
 import {
@@ -32,6 +33,7 @@ export const RecordFieldListInputContextProvider = ({
   objectMetadataItem,
   instanceIdPrefix,
 }: RecordFieldListInputContextProviderProps) => {
+  const locale = useAppLocale();
   const store = useStore();
   const instanceId = useAvailableComponentInstanceId(
     RecordFieldComponentInstanceContext,
@@ -46,6 +48,7 @@ export const RecordFieldListInputContextProvider = ({
   const fieldDefinition = formatFieldMetadataItemAsFieldDefinition({
     field: fieldMetadataItem,
     objectMetadataItem,
+    locale,
   });
 
   const closeInlineCellAndResetEditModePosition = useCallback(() => {

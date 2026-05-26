@@ -1,4 +1,5 @@
 import { type AppLocale } from '@/translations/constants/AppLocales';
+import { SOURCE_LOCALE } from '@/translations/constants/SourceLocale';
 import { normalizeLocale } from '@/utils/validation/normalizeLocale';
 
 import { STANDARD_OBJECT_METADATA_TRANSLATIONS } from './standardObjectMetadataTranslations';
@@ -33,7 +34,14 @@ export const getLocalizedObjectMetadataLabels = ({
   objectMetadataItem: ObjectMetadataItemForLocalization;
 }): LocalizedObjectMetadataLabels => {
   const fallbackLabels = getFallbackLabels(objectMetadataItem);
+  const normalizedLocale = normalizeLocale(locale);
 
+  if (normalizedLocale === SOURCE_LOCALE) {
+    return fallbackLabels;
+  }
+
+  // Standard objects use the locale dictionary when an entry exists, even if the
+  // workspace renamed labelSingular/labelPlural in metadata (isCustom stays false).
   if (objectMetadataItem.isCustom === true) {
     return fallbackLabels;
   }
@@ -44,7 +52,6 @@ export const getLocalizedObjectMetadataLabels = ({
     return fallbackLabels;
   }
 
-  const normalizedLocale = normalizeLocale(locale);
   const translation =
     STANDARD_OBJECT_METADATA_TRANSLATIONS[normalizedLocale]?.[
       objectNameSingular

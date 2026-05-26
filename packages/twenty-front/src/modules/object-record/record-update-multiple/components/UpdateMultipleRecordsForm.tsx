@@ -1,3 +1,4 @@
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { formatFieldMetadataItemAsFieldDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsFieldDefinition';
 import { FormFieldInput } from '@/object-record/record-field/ui/components/FormFieldInput';
@@ -34,6 +35,7 @@ export const UpdateMultipleRecordsForm = ({
   values,
   onChange,
 }: UpdateMultipleRecordsFormProps) => {
+  const locale = useAppLocale();
   const { objectMetadataItem } = useObjectMetadataItem({
     objectNameSingular,
   });
@@ -47,6 +49,7 @@ export const UpdateMultipleRecordsForm = ({
     fieldDefinition: formatFieldMetadataItemAsFieldDefinition({
       field: fieldMetadataItem,
       objectMetadataItem,
+      locale,
       showLabel: true,
       labelWidth: 90,
     }),

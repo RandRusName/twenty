@@ -10,6 +10,8 @@ export default defineConfig({
     'pseudo-en': 'en',
     default: SOURCE_LOCALE,
   },
+  // Catalogs cover twenty-front/src only. Pass localized copy into twenty-ui via
+  // props (label, title, colorLabels, emptyLabel, etc.); do not extract twenty-ui.
   catalogs: [
     {
       path: '<rootDir>/src/locales/{locale}',

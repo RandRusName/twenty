@@ -1,3 +1,4 @@
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { contextStoreTargetedRecordsRuleComponentState } from '@/context-store/states/contextStoreTargetedRecordsRuleComponentState';
 import { useGetFieldMetadataItemByIdOrThrow } from '@/object-metadata/hooks/useGetFieldMetadataItemById';
 import { availableFieldMetadataItemsForFilterFamilySelector } from '@/object-metadata/states/availableFieldMetadataItemsForFilterFamilySelector';
@@ -41,6 +42,7 @@ import { isDefined } from 'twenty-shared/utils';
 import { isDeeplyEqual } from '~/utils/isDeeplyEqual';
 
 export const useLoadRecordIndexStates = () => {
+  const locale = useAppLocale();
   const store = useStore();
 
   const contextStoreTargetedRecordsRuleAtom =
@@ -98,6 +100,7 @@ export const useLoadRecordIndexStates = () => {
               position: index,
               field,
               objectMetadataItem,
+              locale,
             }),
           )
           .filter(filterAvailableTableColumns)
@@ -305,6 +308,7 @@ export const useLoadRecordIndexStates = () => {
       });
     },
     [
+      locale,
       store,
       contextStoreTargetedRecordsRuleAtom,
       recordIndexGroupFieldMetadataItemAtom,

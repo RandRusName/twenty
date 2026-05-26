@@ -8,6 +8,7 @@ import { isDefined } from 'twenty-shared/utils';
 import { AppTooltip, IconEraser, TooltipDelay } from 'twenty-ui/display';
 import { type JsonValue } from 'type-fest';
 
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useFieldMetadataItemById } from '@/object-metadata/hooks/useFieldMetadataItemById';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { formatFieldMetadataItemAsFieldDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsFieldDefinition';
@@ -97,6 +98,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionValueInput =
   ({
     recordFilterId,
   }: SettingsRolePermissionsObjectLevelRecordLevelPermissionValueInputProps) => {
+    const locale = useAppLocale();
     const { theme } = useContext(ThemeContext);
     const { objectMetadataItem } = useContext(AdvancedFilterContext);
 
@@ -266,6 +268,7 @@ export const SettingsRolePermissionsObjectLevelRecordLevelPermissionValueInput =
         label: undefined as unknown as string,
       },
       objectMetadataItem: objectMetadataItem,
+      locale,
     });
 
     const isComposite = isCompositeFieldType(recordFilter.type);

@@ -1,3 +1,4 @@
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useFieldMetadataItemById } from '@/object-metadata/hooks/useFieldMetadataItemById';
 import { formatFieldMetadataItemAsFieldDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsFieldDefinition';
 import { FormFieldInput } from '@/object-record/record-field/ui/components/FormFieldInput';
@@ -20,6 +21,7 @@ export const WorkflowFormFieldInput = ({
   onChange,
   VariablePicker,
 }: WorkflowFormFieldInputProps) => {
+  const locale = useAppLocale();
   const { fieldMetadataItem, objectMetadataItem } =
     useFieldMetadataItemById(fieldMetadataId);
 
@@ -30,6 +32,7 @@ export const WorkflowFormFieldInput = ({
   const fieldDefinition = formatFieldMetadataItemAsFieldDefinition({
     field: fieldMetadataItem,
     objectMetadataItem,
+    locale,
   });
 
   return (

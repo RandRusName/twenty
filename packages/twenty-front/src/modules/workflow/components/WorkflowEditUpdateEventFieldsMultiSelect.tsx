@@ -1,3 +1,4 @@
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { formatFieldMetadataItemAsFieldDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsFieldDefinition';
 import { FormMultiSelectFieldInput } from '@/object-record/record-field/ui/form-types/components/FormMultiSelectFieldInput';
@@ -27,6 +28,7 @@ export const WorkflowFieldsMultiSelect = ({
   actionType: 'UPDATE_RECORD' | 'UPSERT_RECORD';
   hint?: string;
 }) => {
+  const locale = useAppLocale();
   const { getIcon } = useIcons();
 
   const inlineFieldMetadataItems = objectMetadataItem?.fields
@@ -45,6 +47,7 @@ export const WorkflowFieldsMultiSelect = ({
         formatFieldMetadataItemAsFieldDefinition({
           field: fieldMetadataItem,
           objectMetadataItem: objectMetadataItem,
+          locale,
           showLabel: true,
           labelWidth: 90,
         }),

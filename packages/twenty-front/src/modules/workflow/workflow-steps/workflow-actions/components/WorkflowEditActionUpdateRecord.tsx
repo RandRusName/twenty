@@ -1,3 +1,4 @@
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useFilteredObjectMetadataItems } from '@/object-metadata/hooks/useFilteredObjectMetadataItems';
 import { useObjectMetadataSelectHelpers } from '@/object-metadata/hooks/useObjectMetadataSelectHelpers';
 import { formatFieldMetadataItemAsFieldDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsFieldDefinition';
@@ -39,6 +40,7 @@ export const WorkflowEditActionUpdateRecord = ({
   action,
   actionOptions,
 }: WorkflowEditActionUpdateRecordProps) => {
+  const locale = useAppLocale();
   const { getSelectIconPropsFromObjectMetadataItem } =
     useObjectMetadataSelectHelpers();
   const { activeNonSystemObjectMetadataItems } =
@@ -103,6 +105,7 @@ export const WorkflowEditActionUpdateRecord = ({
         formatFieldMetadataItemAsFieldDefinition({
           field: fieldMetadataItem,
           objectMetadataItem: selectedObjectMetadataItem,
+          locale,
           showLabel: true,
           labelWidth: 90,
         }),

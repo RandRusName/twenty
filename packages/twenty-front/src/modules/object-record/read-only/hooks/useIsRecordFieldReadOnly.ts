@@ -1,3 +1,4 @@
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useObjectMetadataItemById } from '@/object-metadata/hooks/useObjectMetadataItemById';
 import { formatFieldMetadataItemAsFieldDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsFieldDefinition';
 import { getObjectPermissionsForObject } from '@/object-metadata/utils/getObjectPermissionsForObject';
@@ -16,6 +17,7 @@ export const useIsRecordFieldReadOnly = ({
   objectMetadataId,
   recordId,
 }: UseFieldIsReadOnlyParams) => {
+  const locale = useAppLocale();
   const { objectMetadataItem } = useObjectMetadataItemById({
     objectId: objectMetadataId,
   });
@@ -43,6 +45,7 @@ export const useIsRecordFieldReadOnly = ({
   const fieldDefinition = formatFieldMetadataItemAsFieldDefinition({
     field: fieldMetadataItem,
     objectMetadataItem,
+    locale,
   });
 
   return isRecordFieldReadOnly({

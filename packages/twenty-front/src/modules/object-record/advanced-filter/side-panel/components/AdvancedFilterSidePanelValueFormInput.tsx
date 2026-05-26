@@ -1,3 +1,4 @@
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { formatFieldMetadataItemAsFieldDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsFieldDefinition';
 import { AdvancedFilterSidePanelValueFormCompositeFieldInput } from '@/object-record/advanced-filter/side-panel/components/AdvancedFilterSidePanelValueFormCompositeFieldInput';
 import { AdvancedFilterContext } from '@/object-record/advanced-filter/states/context/AdvancedFilterContext';
@@ -35,6 +36,7 @@ export const AdvancedFilterSidePanelValueFormInput = ({
 }: {
   recordFilterId: string;
 }) => {
+  const locale = useAppLocale();
   const {
     readonly,
     VariablePicker,
@@ -95,6 +97,7 @@ export const AdvancedFilterSidePanelValueFormInput = ({
     ? formatFieldMetadataItemAsFieldDefinition({
         field: fieldMetadataItemUsedInDropdown,
         objectMetadataItem: objectMetadataItem,
+        locale,
       })
     : null;
 

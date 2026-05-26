@@ -30,7 +30,7 @@ describe('getLocalizedObjectMetadataLabels', () => {
     });
   });
 
-  it('should return English labels for company when locale is en', () => {
+  it('should return raw metadata labels for company when locale is en', () => {
     expect(
       getLocalizedObjectMetadataLabels({
         locale: 'en',
@@ -40,6 +40,66 @@ describe('getLocalizedObjectMetadataLabels', () => {
       labelSingular: 'Company',
       labelPlural: 'Companies',
       accusativeSingular: 'Company',
+    });
+  });
+
+  it('should preserve customized labels for standard objects in source locale', () => {
+    const customizedCompany = {
+      nameSingular: 'company',
+      labelSingular: 'Organization',
+      labelPlural: 'Organizations',
+      isCustom: false,
+    };
+
+    expect(
+      getLocalizedObjectMetadataLabels({
+        locale: 'en',
+        objectMetadataItem: customizedCompany,
+      }),
+    ).toEqual({
+      labelSingular: 'Organization',
+      labelPlural: 'Organizations',
+      accusativeSingular: 'Organization',
+    });
+  });
+
+  it('should fall back to raw metadata labels for locales without translations', () => {
+    const customizedCompany = {
+      nameSingular: 'company',
+      labelSingular: 'Organization',
+      labelPlural: 'Organizations',
+      isCustom: false,
+    };
+
+    expect(
+      getLocalizedObjectMetadataLabels({
+        locale: 'fr-FR',
+        objectMetadataItem: customizedCompany,
+      }),
+    ).toEqual({
+      labelSingular: 'Organization',
+      labelPlural: 'Organizations',
+      accusativeSingular: 'Organization',
+    });
+  });
+
+  it('should use dictionary labels for renamed standard objects when locale is ru-RU', () => {
+    const renamedCompany = {
+      nameSingular: 'company',
+      labelSingular: 'Organization',
+      labelPlural: 'Organizations',
+      isCustom: false,
+    };
+
+    expect(
+      getLocalizedObjectMetadataLabels({
+        locale: 'ru-RU',
+        objectMetadataItem: renamedCompany,
+      }),
+    ).toEqual({
+      labelSingular: 'Компания',
+      labelPlural: 'Компании',
+      accusativeSingular: 'компанию',
     });
   });
 
@@ -118,5 +178,19 @@ describe('getCreateRecordLabel', () => {
         objectMetadataItem: companyObjectMetadataItem,
       }),
     ).toBe('New Company');
+  });
+
+  it('should use customized source-locale label in create record label', () => {
+    expect(
+      getCreateRecordLabel({
+        locale: 'en',
+        objectMetadataItem: {
+          nameSingular: 'company',
+          labelSingular: 'Organization',
+          labelPlural: 'Organizations',
+          isCustom: false,
+        },
+      }),
+    ).toBe('New Organization');
   });
 });

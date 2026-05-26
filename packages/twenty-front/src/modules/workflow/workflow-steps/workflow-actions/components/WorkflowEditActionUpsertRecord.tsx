@@ -1,3 +1,4 @@
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useFilteredObjectMetadataItems } from '@/object-metadata/hooks/useFilteredObjectMetadataItems';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
 import { useObjectMetadataSelectHelpers } from '@/object-metadata/hooks/useObjectMetadataSelectHelpers';
@@ -76,6 +77,7 @@ export const WorkflowEditActionUpsertRecord = ({
   action,
   actionOptions,
 }: WorkflowEditActionUpsertRecordProps) => {
+  const locale = useAppLocale();
   const { getSelectIconPropsFromObjectMetadataItem } =
     useObjectMetadataSelectHelpers();
   const { activeNonSystemObjectMetadataItems } =
@@ -146,6 +148,7 @@ export const WorkflowEditActionUpsertRecord = ({
         formatFieldMetadataItemAsFieldDefinition({
           field: fieldMetadataItem,
           objectMetadataItem,
+          locale,
           showLabel: true,
           labelWidth: 90,
         }),
