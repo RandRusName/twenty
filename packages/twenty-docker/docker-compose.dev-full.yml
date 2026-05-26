@@ -1,0 +1,102 @@
+# Official-like local build compose with server, worker, PostgreSQL, and Redis.
+# Usage:
+#   docker compose -f packages/twenty-docker/docker-compose.dev-full.yml up --build
+#   docker compose -f packages/twenty-docker/docker-compose.dev-full.yml down
+#   docker compose -f packages/twenty-docker/docker-compose.dev-full.yml down -v
+
+name: twenty-local
+
+x-server-image: &server-image
+  image: twenty-local:${TAG:-dev}
+  build:
+    context: ../..
+    dockerfile: packages/twenty-docker/twenty/Dockerfile
+    target: twenty
+
+x-server-environment: &server-environment
+  NODE_ENV: production
+  NODE_PORT: 3000
+  PG_DATABASE_URL: postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:-postgres}@db:5432/${PG_DATABASE_NAME:-default}
+  REDIS_URL: redis://redis:6379
+  SERVER_URL: ${SERVER_URL:-http://localhost:3000}
+  STORAGE_TYPE: ${STORAGE_TYPE:-local}
+  APP_SECRET: ${APP_SECRET:-twenty-local-app-secret-change-me}
+  ENCRYPTION_KEY: ${ENCRYPTION_KEY:-twenty-local-encryption-key-change-me-32-chars}
+  FALLBACK_ENCRYPTION_KEY: ${FALLBACK_ENCRYPTION_KEY:-}
+  SIGN_IN_PREFILLED: ${SIGN_IN_PREFILLED:-true}
+  IS_BILLING_ENABLED: ${IS_BILLING_ENABLED:-false}
+  APPLICATION_LOG_DRIVER: ${APPLICATION_LOG_DRIVER:-CONSOLE}
+
+services:
+  server:
+    <<: *server-image
+    volumes:
+      - server-local-data:/app/packages/twenty-server/.local-storage
+    ports:
+      - "3000:3000"
+    environment:
+      <<: *server-environment
+      DISABLE_DB_MIGRATIONS: ${DISABLE_DB_MIGRATIONS:-false}
+      DISABLE_CRON_JOBS_REGISTRATION: ${DISABLE_CRON_JOBS_REGISTRATION:-false}
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:3000/healthz >/dev/null 2>&1 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
+  worker:
+    <<: *server-image
+    command: ["yarn", "worker:prod"]
+    volumes:
+      - server-local-data:/app/packages/twenty-server/.local-storage
+    environment:
+      <<: *server-environment
+      DISABLE_DB_MIGRATIONS: "true"
+      DISABLE_CRON_JOBS_REGISTRATION: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      server:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:16
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: ${PG_DATABASE_USER:-postgres}
+      POSTGRES_PASSWORD: ${PG_DATABASE_PASSWORD:-postgres}
+      POSTGRES_DB: ${PG_DATABASE_NAME:-default}
+    healthcheck:
+      test: pg_isready -U ${PG_DATABASE_USER:-postgres} -h localhost -d ${PG_DATABASE_NAME:-default}
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    command: ["--maxmemory-policy", "noeviction"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  db-data:
+  server-local-data:
