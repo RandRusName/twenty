@@ -1,6 +1,7 @@
 import { useFieldMetadataItemById } from '@/object-metadata/hooks/useFieldMetadataItemById';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useObjectPermissions } from '@/object-record/hooks/useObjectPermissions';
 import { useIsRecordReadOnly } from '@/object-record/read-only/hooks/useIsRecordReadOnly';
 import { isRecordFieldReadOnly } from '@/object-record/read-only/utils/isRecordFieldReadOnly';
@@ -21,6 +22,7 @@ type UseWidgetActionsParams = {
 export const useWidgetActions = ({
   widget,
 }: UseWidgetActionsParams): WidgetAction[] => {
+  const locale = useAppLocale();
   const targetRecord = useTargetRecord();
 
   const { objectMetadataItem } = useObjectMetadataItem({
@@ -60,6 +62,7 @@ export const useWidgetActions = ({
     field: fieldMetadataItem,
     position: 0,
     objectMetadataItem,
+    locale,
     showLabel: true,
     labelWidth: 90,
   });

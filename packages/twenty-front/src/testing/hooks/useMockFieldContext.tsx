@@ -49,6 +49,7 @@ export const useMockFieldContext = ({
                 field: fieldMetadataItem,
                 position: fieldPosition,
                 objectMetadataItem,
+                locale: 'en',
               }),
               useUpdateRecord: useUpdateOneObjectMutation,
               clearable,

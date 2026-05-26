@@ -1,6 +1,7 @@
 import { useFieldMetadataItemById } from '@/object-metadata/hooks/useFieldMetadataItemById';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { isFieldMorphRelation } from '@/object-record/record-field/ui/types/guards/isFieldMorphRelation';
 import { isFieldRelation } from '@/object-record/record-field/ui/types/guards/isFieldRelation';
 import { isFieldRichText } from '@/object-record/record-field/ui/types/guards/isFieldRichText';
@@ -48,6 +49,7 @@ type FieldWidgetProps = {
 export const FieldWidget = ({ widget }: FieldWidgetProps) => {
   assertFieldWidgetOrThrow(widget);
 
+  const locale = useAppLocale();
   const targetRecord = useTargetRecord();
   const { isInSidePanel } = useLayoutRenderingContext();
 
@@ -96,6 +98,7 @@ export const FieldWidget = ({ widget }: FieldWidgetProps) => {
     field: fieldMetadataItem,
     position: 0,
     objectMetadataItem,
+    locale,
     showLabel: true,
     labelWidth: 90,
   });

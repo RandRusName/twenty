@@ -2,6 +2,7 @@ import { useFieldMetadataItemById } from '@/object-metadata/hooks/useFieldMetada
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { type FieldRelationMetadata } from '@/object-record/record-field/ui/types/FieldMetadata';
 import { isFieldRelation } from '@/object-record/record-field/ui/types/guards/isFieldRelation';
 import { hasJunctionConfig } from '@/object-record/record-field/ui/utils/junction/hasJunctionConfig';
@@ -39,6 +40,7 @@ const StyledSeeAllButtonWrapper = styled.div`
 `;
 
 export const WidgetActionFieldSeeAll = () => {
+  const locale = useAppLocale();
   const widget = useCurrentWidget();
   const targetRecord = useTargetRecord();
 
@@ -63,6 +65,7 @@ export const WidgetActionFieldSeeAll = () => {
         field: fieldMetadataItem,
         position: 0,
         objectMetadataItem,
+        locale,
         showLabel: true,
         labelWidth: 90,
       })

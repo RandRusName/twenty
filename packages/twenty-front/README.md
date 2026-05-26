@@ -7,6 +7,7 @@ Extract and compile UI strings for `twenty-front` only (catalog scope: `src/`):
 ```bash
 yarn workspace twenty-front i18n:extract
 yarn workspace twenty-front i18n:compile
+yarn workspace twenty-front i18n:check
 ```
 
 Nx equivalents: `npx nx run twenty-front:lingui:extract` and `npx nx run twenty-front:lingui:compile`.

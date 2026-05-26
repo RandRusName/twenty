@@ -11989,12 +11989,8 @@ msgstr ""
 msgid "Permanent deletion. Enter the number of days."
 msgstr "Trvalé smazání. Zadejte počet dnů."
 
-#. js-lingui-id: EPkrPQ
-#: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
-msgid "Permanently Destroy"
-msgstr ""
-
 #. js-lingui-id: 64gHBj
+#: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
 #: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
 msgid "Permanently Destroy {objectLabel}"
 msgstr ""
@@ -14944,7 +14940,7 @@ msgstr "Přípona"
 #. js-lingui-id: nyQWMb
 #: src/modules/spreadsheet-import/components/MatchColumnSelectFieldSelectDropdownContent.tsx
 msgid "Suggested"
-msgstr "Navreen e9"
+msgstr "Navržené"
 
 #. js-lingui-id: AxQiPW
 #: src/modules/object-record/record-board/record-board-column/utils/getAggregateOperationShortLabel.ts

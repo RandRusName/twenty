@@ -2,6 +2,7 @@ import { ActivityTargetsInlineCell } from '@/activities/inline-cell/components/A
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { isRecordFieldReadOnly } from '@/object-record/read-only/utils/isRecordFieldReadOnly';
 import { isActivityTargetField } from '@/object-record/record-field-list/utils/categorizeRelationFields';
 import {
@@ -50,6 +51,7 @@ export const FieldsWidgetFieldItem = ({
   instanceId,
   onMouseEnter,
 }: FieldsWidgetFieldItemProps) => {
+  const locale = useAppLocale();
   const isActivityTarget = isActivityTargetField(
     fieldMetadataItem.name,
     targetObjectNameSingular,
@@ -59,6 +61,7 @@ export const FieldsWidgetFieldItem = ({
     field: fieldMetadataItem,
     position: globalIndex,
     objectMetadataItem,
+    locale,
     showLabel: true,
     labelWidth: 90,
   });

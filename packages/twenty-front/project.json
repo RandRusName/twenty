@@ -295,6 +295,13 @@
         "cwd": "{projectRoot}",
         "command": "lingui compile --typescript"
       }
+    },
+    "lingui:check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "command": "npx tsx scripts/check-locales-no-null-bytes.ts"
+      }
     }
   }
 }

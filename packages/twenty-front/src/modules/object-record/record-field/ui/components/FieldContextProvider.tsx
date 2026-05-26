@@ -1,5 +1,6 @@
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useUpdateOneRecord } from '@/object-record/hooks/useUpdateOneRecord';
 import { useIsRecordFieldReadOnly } from '@/object-record/read-only/hooks/useIsRecordFieldReadOnly';
 import {
@@ -34,6 +35,7 @@ export const FieldContextProvider = ({
   anchorId?: string;
   children: ReactNode;
 }) => {
+  const locale = useAppLocale();
   const { objectMetadataItem } = useObjectMetadataItem({
     objectNameSingular,
   });
@@ -77,6 +79,7 @@ export const FieldContextProvider = ({
           showLabel: true,
           position: fieldPosition,
           objectMetadataItem,
+          locale,
           labelWidth: 90,
         }),
         useUpdateRecord:

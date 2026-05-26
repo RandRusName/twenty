@@ -1,5 +1,6 @@
 import { useGetFieldMetadataItemByIdOrThrow } from '@/object-metadata/hooks/useGetFieldMetadataItemById';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useInitDraftValue } from '@/object-record/record-field/ui/hooks/useInitDraftValue';
 import { RecordTitleCellComponentInstanceContext } from '@/object-record/record-title-cell/states/contexts/RecordTitleCellComponentInstanceContext';
 import { isTitleCellInEditModeComponentState } from '@/object-record/record-title-cell/states/isTitleCellInEditModeComponentState';
@@ -19,6 +20,7 @@ type OpenTitleCellFunctionParams = {
 };
 
 export const useRecordTitleCell = () => {
+  const locale = useAppLocale();
   const { goBackToPreviousDropdownFocusId } =
     useGoBackToPreviousDropdownFocusId();
 
@@ -107,6 +109,7 @@ export const useRecordTitleCell = () => {
         field: fieldMetadataItem,
         objectMetadataItem,
         position: 0,
+        locale,
       });
 
       initFieldInputDraftValue({

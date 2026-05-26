@@ -878,7 +878,7 @@ msgstr "Accions"
 #. js-lingui-id: mQKK3r
 #: src/modules/settings/roles/role-permissions/permission-flags/components/SettingsRolePermissionsToolSection.tsx
 msgid "Actions permissions"
-msgstr "Permisos d 27Accions"
+msgstr "Permisos d'accions"
 
 #. js-lingui-id: N4ZcCd
 #: src/modules/settings/roles/role-permissions/object-level-permissions/object-form/components/SettingsRolePermissionsObjectLevelObjectFormObjectLevel.tsx
@@ -1793,7 +1793,7 @@ msgstr "Permet l'inici de sessió amb correu electrònic i contrasenya per a usu
 #. js-lingui-id: +XmkDf
 #: src/modules/settings/roles/role-permissions/permission-flags/hooks/useActionRolePermissionFlagConfig.ts
 msgid "Allow exporting data to CSV files"
-msgstr "Permetre l 27exportaci f3 de dades a fitxers CSV"
+msgstr "Permetre l'exportació de dades a fitxers CSV"
 
 #. js-lingui-id: q/pgyN
 #: src/modules/settings/security/components/SettingsSecurityAuthBypassOptionsList.tsx
@@ -11989,12 +11989,8 @@ msgstr ""
 msgid "Permanent deletion. Enter the number of days."
 msgstr "Eliminació permanent. Introduïu el nombre de dies."
 
-#. js-lingui-id: EPkrPQ
-#: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
-msgid "Permanently Destroy"
-msgstr ""
-
 #. js-lingui-id: 64gHBj
+#: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
 #: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
 msgid "Permanently Destroy {objectLabel}"
 msgstr ""

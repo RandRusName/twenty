@@ -194,3 +194,13 @@ describe('getCreateRecordLabel', () => {
     ).toBe('New Organization');
   });
 });
+
+describe('twenty-shared/translations package exports', () => {
+  it('should expose metadata localization helpers from the package barrel', async () => {
+    const translations = await import('twenty-shared/translations');
+
+    expect(translations.getLocalizedObjectMetadataLabels).toBeDefined();
+    expect(translations.getLocalizedFieldMetadataLabel).toBeDefined();
+    expect(translations.getCreateRecordLabel).toBeDefined();
+  });
+});

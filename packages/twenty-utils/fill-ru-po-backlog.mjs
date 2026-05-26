@@ -14,12 +14,16 @@ const serialize = poFormatter.serialize.bind(poFormatter);
 
 const RU_OVERRIDES = {
   'Permanently Destroy': 'Удалить навсегда',
-  'Permanently Destroy {objectLabel}': 'Удалить навсегда {objectLabel}',
+  'Permanently Destroy {objectLabel}': 'Удалить безвозвратно: {objectLabel}',
   'Restore {objectLabel}': 'Восстановить {objectLabel}',
   "Are you sure you want to destroy these {labelPlural}? They won't be recoverable anymore.":
-    'Вы уверены, что хотите безвозвратно удалить эти {labelPlural}? Их нельзя будет восстановить.',
+    'Вы уверены, что хотите безвозвратно удалить эти записи типа «{labelPlural}»? Восстановить их будет невозможно.',
   'Are you sure you want to destroy this {labelSingular}? It cannot be recovered anymore.':
-    'Вы уверены, что хотите безвозвратно удалить этот {labelSingular}? Его нельзя будет восстановить.',
+    'Вы уверены, что хотите безвозвратно удалить эту запись типа «{labelSingular}»? Восстановить её будет невозможно.',
+  ': Future': ': Будущее',
+  ': NotEmpty': ': Не пусто',
+  ': NotNull': ': Не Null',
+  ': Past': ': Прошлое',
   Basic: 'Основные',
   'All the basic field types you need to start':
     'Все основные типы полей, необходимые для начала',
@@ -40,7 +44,15 @@ const isEmptyTranslation = (translation) => {
     );
   }
 
+  if (typeof translation !== 'string') {
+    return true;
+  }
+
   return translation === '';
+};
+
+const isStringTranslation = (translation) => {
+  return typeof translation === 'string';
 };
 
 const getMessageKey = (message) => {
@@ -70,9 +82,11 @@ const fillCatalog = (ruCatalog, enCatalog) => {
 
     const englishMessage = enCatalog[messageId];
     const englishTranslation = englishMessage?.translation;
-    const englishKey = getMessageKey(englishMessage ?? {});
 
-    if (!isEmptyTranslation(englishTranslation)) {
+    if (
+      isStringTranslation(englishTranslation) &&
+      !isEmptyTranslation(englishTranslation)
+    ) {
       message.translation = englishTranslation;
       filled += 1;
       continue;

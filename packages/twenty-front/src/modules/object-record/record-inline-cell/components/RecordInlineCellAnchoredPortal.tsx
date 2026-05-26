@@ -2,6 +2,7 @@ import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadat
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useObjectPermissions } from '@/object-record/hooks/useObjectPermissions';
 import { useUpdateOneRecord } from '@/object-record/hooks/useUpdateOneRecord';
 import { useIsRecordFieldReadOnly } from '@/object-record/read-only/hooks/useIsRecordFieldReadOnly';
@@ -47,6 +48,7 @@ export const RecordInlineCellAnchoredPortal = ({
   children,
   onCloseEditMode,
 }: RecordInlineCellAnchoredPortalProps) => {
+  const locale = useAppLocale();
   const fieldInstanceId = getRecordFieldInputInstanceId({
     recordId,
     fieldName: fieldMetadataItem.name,
@@ -101,6 +103,7 @@ export const RecordInlineCellAnchoredPortal = ({
             field: fieldMetadataItem,
             position: 0,
             objectMetadataItem,
+            locale,
             showLabel: true,
             labelWidth: 90,
           }),

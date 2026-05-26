@@ -137,6 +137,7 @@ export const getFieldDecorator =
               field: fieldMetadataItem,
               position: 0,
               objectMetadataItem,
+              locale: 'en',
             }),
             isRecordFieldReadOnly: false,
           }}

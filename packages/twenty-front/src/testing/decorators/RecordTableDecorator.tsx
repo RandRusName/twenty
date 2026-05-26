@@ -140,6 +140,7 @@ const InternalTableContextProviders = ({
           recordFieldByFieldMetadataItemId[fieldMetadataItem.id]?.position ?? 0,
         labelWidth:
           recordFieldByFieldMetadataItemId[fieldMetadataItem.id]?.size ?? 0,
+        locale: 'en',
       }),
     ]),
   );

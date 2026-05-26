@@ -11991,12 +11991,8 @@ msgstr ""
 msgid "Permanent deletion. Enter the number of days."
 msgstr "Permanent radering. Ange antalet dagar."
 
-#. js-lingui-id: EPkrPQ
-#: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
-msgid "Permanently Destroy"
-msgstr ""
-
 #. js-lingui-id: 64gHBj
+#: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
 #: src/modules/command-menu-item/engine-command/record/components/DestroyRecordsCommand.tsx
 msgid "Permanently Destroy {objectLabel}"
 msgstr ""

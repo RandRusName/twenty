@@ -1,6 +1,7 @@
 import { useFieldMetadataItemById } from '@/object-metadata/hooks/useFieldMetadataItemById';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useObjectPermissions } from '@/object-record/hooks/useObjectPermissions';
 import { useIsRecordReadOnly } from '@/object-record/read-only/hooks/useIsRecordReadOnly';
 import { isRecordFieldReadOnly } from '@/object-record/read-only/utils/isRecordFieldReadOnly';
@@ -27,6 +28,7 @@ import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
 import { assertIsDefinedOrThrow } from 'twenty-shared/utils';
 
 export const WidgetActionFieldEdit = () => {
+  const locale = useAppLocale();
   const widget = useCurrentWidget();
   const targetRecord = useTargetRecord();
   const { isInSidePanel } = useLayoutRenderingContext();
@@ -64,6 +66,7 @@ export const WidgetActionFieldEdit = () => {
     field: fieldMetadataItem,
     position: 0,
     objectMetadataItem,
+    locale,
     showLabel: true,
     labelWidth: 90,
   });

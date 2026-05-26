@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useFindOneRecord } from '@/object-record/hooks/useFindOneRecord';
 import { useExportProcessRecordsForCSV } from '@/object-record/object-options-dropdown/hooks/useExportProcessRecordsForCSV';
 import { type FieldMetadata } from '@/object-record/record-field/ui/types/FieldMetadata';
@@ -20,6 +21,7 @@ export const useExportSingleRecord = ({
   objectMetadataItem,
   recordId,
 }: UseSingleExportTableDataOptions) => {
+  const locale = useAppLocale();
   const { processRecordsForCSVExport } = useExportProcessRecordsForCSV(
     objectMetadataItem.nameSingular,
   );
@@ -52,6 +54,7 @@ export const useExportSingleRecord = ({
         field,
         objectMetadataItem,
         position: index,
+        locale,
       }),
     );
   const { record, error } = useFindOneRecord({

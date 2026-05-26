@@ -2,6 +2,7 @@ import { ActivityTargetsInlineCell } from '@/activities/inline-cell/components/A
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
 import { formatFieldMetadataItemAsColumnDefinition } from '@/object-metadata/utils/formatFieldMetadataItemAsColumnDefinition';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useObjectPermissions } from '@/object-record/hooks/useObjectPermissions';
 import { useIsRecordReadOnly } from '@/object-record/read-only/hooks/useIsRecordReadOnly';
 import { isRecordFieldReadOnly } from '@/object-record/read-only/utils/isRecordFieldReadOnly';
@@ -47,6 +48,7 @@ export const RecordFieldList = ({
   excludeFieldMetadataIds = [],
   excludeCreatedAtAndUpdatedAt = true,
 }: RecordFieldListProps) => {
+  const locale = useAppLocale();
   const { recordLoading } = useRecordShowContainerData({
     objectRecordId,
   });
@@ -100,6 +102,7 @@ export const RecordFieldList = ({
               field: fieldMetadataItem,
               position: index,
               objectMetadataItem,
+              locale,
               showLabel: true,
               labelWidth: 90,
             });
@@ -162,6 +165,7 @@ export const RecordFieldList = ({
             field: fieldMetadataItem,
             position: index,
             objectMetadataItem,
+            locale,
             showLabel: true,
             labelWidth: 90,
           });
@@ -245,6 +249,7 @@ export const RecordFieldList = ({
             field: fieldMetadataItem,
             position: index,
             objectMetadataItem,
+            locale,
           });
 
           return (

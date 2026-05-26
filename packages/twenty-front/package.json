@@ -6,6 +6,7 @@
     "i18n:extract": "lingui extract --overwrite --clean",
     "i18n:extract-clean": "lingui extract --clean",
     "i18n:compile": "lingui compile --typescript",
+    "i18n:check": "npx tsx scripts/check-locales-no-null-bytes.ts",
     "build": "NODE_ENV=production NODE_OPTIONS=--max-old-space-size=8192 npx vite build",
     "build:sourcemaps": "NODE_ENV=production VITE_BUILD_SOURCEMAP=true NODE_OPTIONS=--max-old-space-size=8192 npx vite build",
     "start:prod": "NODE_ENV=production npx serve -s build",
