@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { type SettingsFieldType } from '@/settings/data-model/types/SettingsFieldType';
 import { getSettingsFieldTypeConfig } from '@/settings/data-model/utils/getSettingsFieldTypeConfig';
+import { getTranslatedSettingsFieldTypeLabel } from '@/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel';
+import { useLingui } from '@lingui/react/macro';
 import { type IconComponent, IconTwentyStar } from 'twenty-ui/display';
 import { useContext } from 'react';
 import { ThemeContext, themeCssVariables } from 'twenty-ui/theme-constants';
@@ -66,11 +68,13 @@ export const SettingsObjectFieldDataType = ({
   labelDetail,
   onClick,
 }: SettingsObjectFieldDataTypeProps) => {
+  const { i18n } = useLingui();
   const { theme } = useContext(ThemeContext);
   const fieldTypeConfig = getSettingsFieldTypeConfig(value);
   const Icon: IconComponent =
     IconFromProps ?? fieldTypeConfig?.Icon ?? IconTwentyStar;
-  const label = labelFromProps ?? fieldTypeConfig?.label;
+  const label =
+    labelFromProps ?? getTranslatedSettingsFieldTypeLabel(value, i18n);
 
   return (
     <StyledDataType

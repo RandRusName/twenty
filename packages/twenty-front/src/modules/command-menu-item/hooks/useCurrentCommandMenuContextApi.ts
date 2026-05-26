@@ -8,6 +8,7 @@ import { contextStoreCurrentViewIdComponentState } from '@/context-store/states/
 import { contextStoreCurrentPageTypeComponentState } from '@/context-store/states/contextStoreCurrentPageTypeComponentState';
 import { contextStoreNumberOfSelectedRecordsComponentState } from '@/context-store/states/contextStoreNumberOfSelectedRecordsComponentState';
 import { contextStoreTargetedRecordsRuleComponentState } from '@/context-store/states/contextStoreTargetedRecordsRuleComponentState';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useNavigationMenuItemsData } from '@/navigation-menu-item/display/hooks/useNavigationMenuItemsData';
 import { useObjectMetadataItems } from '@/object-metadata/hooks/useObjectMetadataItems';
 import { useObjectPermissionsForObject } from '@/object-record/hooks/useObjectPermissionsForObject';
@@ -32,6 +33,7 @@ import {
 import { isDefined, resolveObjectMetadataLabel } from 'twenty-shared/utils';
 
 export const useCurrentCommandMenuContextApi = (): CommandMenuContextApi => {
+  const locale = useAppLocale();
   const store = useStore();
 
   const contextStoreInstanceId = useAvailableComponentInstanceIdOrThrow(
@@ -175,6 +177,7 @@ export const useCurrentCommandMenuContextApi = (): CommandMenuContextApi => {
     ? resolveObjectMetadataLabel({
         objectMetadataItem: objectMetadataItem,
         numberOfSelectedRecords: contextStoreNumberOfSelectedRecords,
+        locale,
       })
     : '';
 

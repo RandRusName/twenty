@@ -16,7 +16,9 @@ import { useHandleIndexIdentifierClick } from '@/object-record/record-index/hook
 import { useRecordIndexFieldMetadataDerivedStates } from '@/object-record/record-index/hooks/useRecordIndexFieldMetadataDerivedStates';
 import { useRecordIndexIdFromCurrentContextStore } from '@/object-record/record-index/hooks/useRecordIndexIdFromCurrentContextStore';
 import { RECORD_INDEX_DRAG_SELECT_BOUNDARY_CLASS } from '@/ui/utilities/drag-select/constants/RecordIndecDragSelectBoundaryClass';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { PageTitle } from '@/ui/utilities/page-title/components/PageTitle';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
 import { ViewComponentInstanceContext } from '@/views/states/contexts/ViewComponentInstanceContext';
 import { styled } from '@linaria/react';
 import { useStore } from 'jotai';
@@ -29,6 +31,7 @@ const StyledIndexContainer = styled.div`
 `;
 
 export const RecordIndexContainerGater = () => {
+  const locale = useAppLocale();
   const store = useStore();
 
   const { recordIndexId, objectMetadataItem } =
@@ -90,7 +93,14 @@ export const RecordIndexContainerGater = () => {
                 instanceId: getCommandMenuIdFromRecordIndexId(recordIndexId),
               }}
             >
-              <PageTitle title={objectMetadataItem.labelPlural} />
+              <PageTitle
+                title={
+                  getLocalizedObjectMetadataLabels({
+                    locale,
+                    objectMetadataItem,
+                  }).labelPlural
+                }
+              />
               <RecordIndexPageHeader />
               <MainContainerLayoutWithSidePanel>
                 <StyledIndexContainer

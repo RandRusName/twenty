@@ -11,7 +11,8 @@ import { type FieldType } from '@/settings/data-model/types/FieldType';
 import { type SettingsFieldType } from '@/settings/data-model/types/SettingsFieldType';
 import { SettingsTextInput } from '@/ui/input/components/SettingsTextInput';
 import { styled } from '@linaria/react';
-import { t } from '@lingui/core/macro';
+import { useLingui } from '@lingui/react/macro';
+import { getTranslatedSettingsFieldTypeLabel } from '@/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel';
 import { Section } from '@react-email/components';
 import { useContext, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
@@ -64,17 +65,28 @@ export const SettingsObjectNewFieldSelector = ({
   excludedFieldTypes = [],
   objectNamePlural,
 }: SettingsObjectNewFieldSelectorProps) => {
+  const { i18n, t } = useLingui();
   const { theme } = useContext(ThemeContext);
   const { control, setValue } =
     useFormContext<SettingsDataModelFieldTypeFormValues>();
   const [searchQuery, setSearchQuery] = useState('');
   const fieldTypeConfigs = Object.entries<SettingsFieldTypeConfig<any>>(
     SETTINGS_FIELD_TYPE_CONFIGS,
-  ).filter(
-    ([key, config]) =>
-      !excludedFieldTypes.includes(key as SettingsFieldType) &&
-      config.label.toLowerCase().includes(searchQuery.toLowerCase()),
-  );
+  ).filter(([key]) => {
+    if (excludedFieldTypes.includes(key as SettingsFieldType)) {
+      return false;
+    }
+
+    const fieldType = key as SettingsFieldType;
+    const translatedLabel =
+      fieldType === FieldMetadataType.MORPH_RELATION
+        ? t`Relation`
+        : getTranslatedSettingsFieldTypeLabel(fieldType, i18n);
+
+    return translatedLabel
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+  });
 
   const { resetDefaultValueField: resetBooleanDefaultValueField } =
     useBooleanSettingsFormInitialValues({ existingFieldMetadataId: 'new' });
@@ -135,15 +147,18 @@ export const SettingsObjectNewFieldSelector = ({
                   {fieldTypeConfigs
                     .filter(([, config]) => config.category === category)
                     .filter(([key]) => key !== FieldMetadataType.RELATION)
-                    .map(
-                      ([key, config]) =>
-                        [
-                          key,
-                          key === FieldMetadataType.MORPH_RELATION
-                            ? { ...config, label: t`Relation` }
-                            : config,
-                        ] as [string, SettingsFieldTypeConfig<any>],
-                    )
+                    .map(([key, config]) => {
+                      const fieldType = key as SettingsFieldType;
+                      const translatedLabel =
+                        fieldType === FieldMetadataType.MORPH_RELATION
+                          ? t`Relation`
+                          : getTranslatedSettingsFieldTypeLabel(fieldType, i18n);
+
+                      return [key, { ...config, label: translatedLabel }] as [
+                        string,
+                        SettingsFieldTypeConfig<any>,
+                      ];
+                    })
                     .map(([key, config]) => (
                       <StyledCardContainer key={key}>
                         <UndecoratedLink

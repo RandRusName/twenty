@@ -7,6 +7,7 @@ import { lastClickedNavigationMenuItemIdState } from '@/navigation-menu-item/com
 import { recordIdentifierToObjectRecordIdentifier } from '@/navigation-menu-item/common/utils/recordIdentifierToObjectRecordIdentifier';
 import { useIdentifyActiveNavigationMenuItems } from '@/navigation-menu-item/display/hooks/useIdentifyActiveNavigationMenuItems';
 import { getNavigationMenuItemComputedLink } from '@/navigation-menu-item/display/utils/getNavigationMenuItemComputedLink';
+import { useLocalizedObjectMetadataLabels } from '@/object-metadata/hooks/useLocalizedObjectMetadataLabels';
 import { getNavigationMenuItemLabel } from '@/navigation-menu-item/display/utils/getNavigationMenuItemLabel';
 import { ObjectIconWithViewOverlay } from '@/navigation-menu-item/display/view/components/ObjectIconWithViewOverlay';
 import { lastVisitedViewPerObjectMetadataItemState } from '@/navigation/states/lastVisitedViewPerObjectMetadataItemState';
@@ -72,6 +73,9 @@ export const NavigationDrawerItemForObjectMetadataItem = ({
   const objectNavItemColor = getObjectColorWithFallback(objectMetadataItem);
   const navigate = useNavigate();
 
+  const { labelPlural, labelSingular } =
+    useLocalizedObjectMetadataLabels(objectMetadataItem);
+
   const { activeNavigationMenuItemIds, objectMetadataIdForOpenedSection } =
     useIdentifyActiveNavigationMenuItems();
   const setLastClickedNavigationMenuItemId = useSetAtomState(
@@ -117,12 +121,10 @@ export const NavigationDrawerItemForObjectMetadataItem = ({
 
   const itemLabel = isDefined(navigationMenuItem)
     ? getNavigationMenuItemLabel(navigationMenuItem, objectMetadataItems, views)
-    : objectMetadataItem.labelPlural;
+    : labelPlural;
 
   const primaryLabel =
-    isRecord || isViewWithResolvedView
-      ? itemLabel
-      : objectMetadataItem.labelPlural;
+    isRecord || isViewWithResolvedView ? itemLabel : labelPlural;
 
   const needsInaccessibleRecordPlaceholder =
     isLayoutCustomizationModeEnabled &&
@@ -166,9 +168,7 @@ export const NavigationDrawerItemForObjectMetadataItem = ({
   const iconThemeColor = !isRecord ? objectNavItemColor : undefined;
 
   const secondaryLabel =
-    isRecord || isViewWithResolvedView
-      ? objectMetadataItem.labelSingular
-      : undefined;
+    isRecord || isViewWithResolvedView ? labelSingular : undefined;
 
   const showInaccessibleLock =
     isLayoutCustomizationModeEnabled && !canReadObjectRecords;

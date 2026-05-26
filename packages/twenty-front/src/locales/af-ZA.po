@@ -937,6 +937,11 @@ msgstr "Aktiewe installasies"
 msgid "Active Sync"
 msgstr "Aktiewe sinkronisering"
 
+#. js-lingui-id: Fo2bwm
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Actor"
+msgstr ""
+
 #. js-lingui-id: m16xKo
 #: src/pages/settings/ai/components/SettingsAgentEvalsTab.tsx
 msgid "Add"
@@ -1311,6 +1316,11 @@ msgstr "Bygevoeg {beautifyPastDateRelative}"
 msgid "Added to blocklist"
 msgstr "By swartlys gevoeg"
 
+#. js-lingui-id: Du6bPw
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Address"
+msgstr ""
+
 #. js-lingui-id: hW/fMg
 #: src/modules/ui/field/input/components/AddressInput.tsx
 #: src/modules/settings/data-model/fields/forms/address/constants/DefaultSelectionAddressWithMessages.ts
@@ -1492,12 +1502,12 @@ msgstr ""
 #: src/pages/settings/ai/SettingsSkillForm.tsx
 #: src/pages/settings/ai/SettingsAiUsageUserDetail.tsx
 #: src/pages/settings/ai/SettingsAiPrompts.tsx
+#: src/pages/settings/ai/SettingsAI.tsx
+#: src/pages/settings/ai/SettingsAI.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentForm.tsx
-#: src/pages/settings/ai/SettingsAI.tsx
-#: src/pages/settings/ai/SettingsAI.tsx
 #: src/modules/workflow/workflow-steps/workflow-actions/utils/getActionHeaderTypeOrThrow.ts
 #: src/modules/side-panel/pages/workflow/action/components/SidePanelWorkflowSelectAction.tsx
 #: src/modules/settings/roles/role-permissions/permission-flags/hooks/useSettingsRolePermissionFlagConfig.ts
@@ -2312,6 +2322,11 @@ msgstr "Is jy seker dat jy die rol van hierdie gebruiker van \"{oldRoleLabel}\" 
 #: src/modules/spreadsheet-import/provider/components/SpreadsheetImport.tsx
 msgid "Are you sure? Your current information will not be saved."
 msgstr "Is jy seker? Jou huidige inligting sal nie gestoor word nie."
+
+#. js-lingui-id: pT1gFQ
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Array"
+msgstr ""
 
 #. js-lingui-id: cybVUo
 #: src/modules/settings/members/components/MemberInfosTab.tsx
@@ -4528,6 +4543,7 @@ msgid "currencies"
 msgstr "geldeenhede"
 
 #. js-lingui-id: Q2lUR2
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/object-record/record-field/ui/meta-types/input/components/CurrencyFieldInput.tsx
 msgid "Currency"
 msgstr "Geldeenheid"
@@ -4826,6 +4842,7 @@ msgstr "Databasis gebeurtenis"
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/components/SettingsAgentLogsTab.tsx
 #: src/pages/settings/ai/components/SettingsAgentLogsTab.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/object-record/record-table/record-table-footer/components/RecordTableColumnAggregateFooterMenuContent.tsx
 #: src/modules/object-record/record-table/record-table-footer/components/RecordTableColumnAggregateFooterDropdownContent.tsx
 #: src/modules/object-record/record-board/record-board-column/components/RecordBoardColumnHeaderAggregateDropdownMenuContent.tsx
@@ -4833,6 +4850,11 @@ msgstr "Databasis gebeurtenis"
 #: src/modules/ai/constants/AgentChatThreadGroupByLabels.ts
 msgid "Date"
 msgstr "Datum"
+
+#. js-lingui-id: Wv92XG
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Date and Time"
+msgstr ""
 
 #. js-lingui-id: QIIAIQ
 #: src/modules/views/view-picker/components/ViewPickerContentCreateMode.tsx
@@ -5091,6 +5113,7 @@ msgstr "verwyder"
 #: src/modules/side-panel/pages/page-layout/components/RegularTabSettingsContent.tsx
 #: src/modules/side-panel/pages/page-layout/components/CanvasTabSettingsContent.tsx
 #: src/modules/settings/security/components/SSO/SettingsSecuritySSORowDropdownMenu.tsx
+#: src/modules/settings/security/components/approvedAccessDomains/SettingsSecurityApprovedAccessDomainRowDropdownMenu.tsx
 #: src/modules/settings/logic-functions/components/tabs/SettingsLogicFunctionTabEnvironmentVariableTableRow.tsx
 #: src/modules/settings/emailing-domains/components/SettingsEmailingDomainRowDropdownMenu.tsx
 #: src/modules/settings/domains/components/SettingPublicDomainRowDropdownMenu.tsx
@@ -5551,6 +5574,11 @@ msgstr "Moenie kontakte van/na Gmail, Outlook e-posse skep nie"
 msgid "Don't sync emails from team@ support@ noreply@..."
 msgstr "Moenie e-posse vanaf team@ support@ noreply@... sinkroniseer nie"
 
+#. js-lingui-id: DPfwMq
+#: src/modules/page-layout/widgets/fields/components/FieldsConfigurationGroupRenameInput.tsx
+msgid "Done"
+msgstr ""
+
 #. js-lingui-id: Wm78zZ
 #: src/modules/settings/experience/components/NumberFormatSelect.tsx
 msgid "Dots and comma"
@@ -6001,6 +6029,7 @@ msgstr "E-posdomeine"
 #: src/pages/settings/accounts/SettingsAccountsEmails.tsx
 #: src/pages/settings/accounts/SettingsAccountsEmails.tsx
 #: src/modules/settings/hooks/useSettingsNavigationItems.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/settings/accounts/components/SettingsAccountsSettingsSection.tsx
 msgid "Emails"
 msgstr "E-posse"
@@ -7363,6 +7392,11 @@ msgstr ""
 msgid "File upload failed"
 msgstr "Lêeroplaai het misluk"
 
+#. js-lingui-id: sER+bs
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Files"
+msgstr ""
+
 #. js-lingui-id: BZGmTs
 #: src/modules/settings/logic-functions/components/tabs/SettingsLogicFunctionTestTab.tsx
 msgid "Fill with sample input from"
@@ -7631,6 +7665,11 @@ msgstr "Front-end-komponente"
 #: src/pages/onboarding/internal/ChooseYourPlanContent.tsx
 msgid "Full access"
 msgstr "Volle toegang"
+
+#. js-lingui-id: /4TFrF
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Full Name"
+msgstr ""
 
 #. js-lingui-id: Ld0Tt4
 #: src/modules/side-panel/components/hooks/usePageLayoutHeaderInfo.ts
@@ -8876,6 +8915,7 @@ msgstr "Sluit aan by {workspaceName} span"
 
 #. js-lingui-id: B2Zb/F
 #: src/pages/settings/ai/components/SettingsAgentResponseFormat.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 msgid "JSON"
 msgstr ""
 
@@ -9342,6 +9382,11 @@ msgstr "het 'n kalendergeleentheid met {labelIdentifierValue} gekoppel"
 #: src/modules/activities/timeline-activities/rows/message/components/EventRowMessage.tsx
 msgid "linked an email with"
 msgstr "het 'n e-pos gekoppel met"
+
+#. js-lingui-id: Rj01Fz
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Links"
+msgstr ""
 
 #. js-lingui-id: 82kQhK
 #: src/modules/advanced-text-editor/extensions/slash-command/DefaultSlashCommands.ts
@@ -10027,6 +10072,11 @@ msgstr "Meer opsies"
 msgid "More widgets"
 msgstr "Meer widgets"
 
+#. js-lingui-id: pyWk0f
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Morph Relation"
+msgstr ""
+
 #. js-lingui-id: SOHptZ
 #: src/pages/settings/applications/components/SettingsApplicationRegistrationGeneralStats.tsx
 msgid "Most installed version"
@@ -10081,6 +10131,11 @@ msgstr "Skuif op"
 #. js-lingui-id: Bpglf1
 #: src/modules/side-panel/pages/page-layout/components/WidgetSettingsPlacementSection.tsx
 msgid "Move Up"
+msgstr ""
+
+#. js-lingui-id: TTNKlL
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Multi-select"
 msgstr ""
 
 #. js-lingui-id: asWVA5
@@ -11169,6 +11224,7 @@ msgstr "nommer"
 
 #. js-lingui-id: HptUxX
 #: src/modules/ui/input/components/internal/date/components/RelativeDatePickerHeader.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/settings/data-model/fields/forms/number/constants/NumberDataModelSelectOptions.ts
 #: src/modules/ai/constants/OutputFieldTypeOptions.ts
 msgid "Number"
@@ -11952,6 +12008,11 @@ msgstr "Telefoonnommer"
 msgid "Phone number copied to clipboard"
 msgstr "Selfoonnommer na knipbord gekopieer"
 
+#. js-lingui-id: m2ivgq
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Phones"
+msgstr ""
+
 #. js-lingui-id: vqKcU0
 #: src/modules/workflow/workflow-variables/components/WorkflowVariablesDropdownStepItems.tsx
 #: src/modules/workflow/workflow-steps/components/WorkflowDropdownStepOutputItems.tsx
@@ -12442,6 +12503,7 @@ msgstr "Het {formattedName} uitgevoer"
 
 #. js-lingui-id: z1U/Fh
 #: src/modules/ui/field/input/components/RatingInput.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 msgid "Rating"
 msgstr "Waardering"
 
@@ -12712,6 +12774,8 @@ msgid "Region where inference data is processed (optional)"
 msgstr "Streek waar inferensiedata verwerk word (opsioneel)"
 
 #. js-lingui-id: h9AYFD
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+#: src/modules/settings/data-model/fields/forms/components/SettingsObjectNewFieldSelector.tsx
 #: src/modules/settings/data-model/fields/forms/components/SettingsObjectNewFieldSelector.tsx
 msgid "Relation"
 msgstr "Verhouding"
@@ -13144,6 +13208,7 @@ msgstr ""
 #. js-lingui-id: NP5Nbf
 #: src/modules/side-panel/pages/page-layout/components/SidePanelPageLayoutDashboardWidgetTypeSelect.tsx
 #: src/modules/side-panel/hooks/useOpenRichTextInSidePanel.ts
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/page-layout/utils/getWidgetTitle.ts
 msgid "Rich Text"
 msgstr "Rykteks"
@@ -13758,6 +13823,7 @@ msgstr ""
 #. js-lingui-id: rG3WVm
 #: src/modules/spreadsheet-import/steps/components/ValidationStep/components/columns.tsx
 #: src/modules/spreadsheet-import/steps/components/SelectHeaderStep/components/SelectColumn.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/object-record/record-field/ui/form-types/components/FormSingleRecordFieldChip.tsx
 msgid "Select"
 msgstr "Kies"
@@ -14469,8 +14535,8 @@ msgstr "Jammer, iets het verkeerd geloop"
 #: src/modules/object-record/record-table/record-table-header/components/RecordTableColumnHeadDropdownMenu.tsx
 #: src/modules/object-record/object-sort-dropdown/components/ObjectSortDropdownButton.tsx
 #: src/modules/object-record/object-sort-dropdown/components/ObjectSortDropdownButton.tsx
-#: src/modules/object-record/object-options-dropdown/components/ObjectOptionsDropdownRecordGroupsContent.tsx
 #: src/modules/object-record/object-options-dropdown/components/ObjectOptionsDropdownRecordGroupSortContent.tsx
+#: src/modules/object-record/object-options-dropdown/components/ObjectOptionsDropdownRecordGroupsContent.tsx
 msgid "Sort"
 msgstr "Sorteer"
 
@@ -14785,8 +14851,8 @@ msgstr "Teken in"
 
 #. js-lingui-id: ShbDuS
 #: src/modules/settings/billing/components/SettingsBillingSubscriptionInfo.tsx
-#: src/modules/ai/components/AiChatCreditsExhaustedMessage.tsx
 #: src/modules/ai/components/AIChatNoMoreBillingCreditsBanner.tsx
+#: src/modules/ai/components/AiChatCreditsExhaustedMessage.tsx
 msgid "Subscribe Now"
 msgstr "Teken Nou In"
 
@@ -15111,6 +15177,7 @@ msgstr "teks"
 
 #. js-lingui-id: xeiujy
 #: src/modules/workflow/workflow-steps/workflow-actions/http-request-action/components/BodyInput.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/ai/constants/OutputFieldTypeOptions.ts
 #: src/modules/advanced-text-editor/extensions/slash-command/DefaultSlashCommands.ts
 msgid "Text"
@@ -15910,6 +15977,11 @@ msgstr ""
 msgid "True"
 msgstr "Waar"
 
+#. js-lingui-id: rfp3gh
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "True/False"
+msgstr ""
+
 #. js-lingui-id: haaL9N
 #: src/pages/settings/workspace/SettingsApiWebhooks.tsx
 #: src/pages/settings/developers/api-keys/SettingsApiKeys.tsx
@@ -16132,6 +16204,11 @@ msgstr "Uniek"
 #: src/modules/workflow/workflow-steps/workflow-actions/components/WorkflowEditActionUpsertRecord.tsx
 msgid "Unique fields"
 msgstr "Unieke velde"
+
+#. js-lingui-id: MuBqC0
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Unique ID"
+msgstr ""
 
 #. js-lingui-id: pRpC/r
 #: src/modules/side-panel/pages/page-layout/constants/settings/SuffixSetting.ts
@@ -17325,11 +17402,11 @@ msgstr "Werksvloeie"
 #: src/pages/settings/ai/SettingsSkillForm.tsx
 #: src/pages/settings/ai/SettingsAiUsageUserDetail.tsx
 #: src/pages/settings/ai/SettingsAiPrompts.tsx
+#: src/pages/settings/ai/SettingsAI.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentForm.tsx
-#: src/pages/settings/ai/SettingsAI.tsx
 #: src/pages/settings/admin-panel/SettingsAdminWorkspaceChatThread.tsx
 #: src/modules/views/view-picker/components/ViewPickerListContent.tsx
 #: src/modules/sign-in-background-mock/components/BackgroundMockNavigationDrawer.tsx

@@ -5,11 +5,14 @@ import { useLazyFetchAllRecords } from '@/object-record/hooks/useLazyFetchAllRec
 import { useRestoreManyRecords } from '@/object-record/hooks/useRestoreManyRecords';
 import { useRemoveSelectedRecordsFromRecordBoard } from '@/object-record/record-board/hooks/useRemoveSelectedRecordsFromRecordBoard';
 import { useResetTableRowSelection } from '@/object-record/record-table/hooks/internal/useResetTableRowSelection';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { t } from '@lingui/core/macro';
 import { type RecordGqlOperationFilter } from 'twenty-shared/types';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
 import { isDefined } from 'twenty-shared/utils';
 
 export const RestoreRecordsCommand = () => {
+  const locale = useAppLocale();
   const { recordIndexId, objectMetadataItem, selectedRecords, graphqlFilter } =
     useHeadlessCommandContextApi();
 
@@ -64,14 +67,17 @@ export const RestoreRecordsCommand = () => {
     });
   };
 
-  const objectLabel = isSingleRecord
-    ? objectMetadataItem.labelSingular
-    : objectMetadataItem.labelPlural;
+  const { labelSingular, labelPlural } = getLocalizedObjectMetadataLabels({
+    locale,
+    objectMetadataItem,
+  });
+
+  const objectLabel = isSingleRecord ? labelSingular : labelPlural;
 
   const title = t`Restore ${objectLabel}`;
   const subtitle = isSingleRecord
-    ? t`Are you sure you want to restore this ${objectMetadataItem.labelSingular}?`
-    : t`Are you sure you want to restore these ${objectMetadataItem.labelPlural}?`;
+    ? t`Are you sure you want to restore this ${labelSingular}?`
+    : t`Are you sure you want to restore these ${labelPlural}?`;
 
   return (
     <HeadlessConfirmationModalEngineCommandEffect

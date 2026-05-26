@@ -1,6 +1,8 @@
 import { type MouseEvent } from 'react';
 
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { getAvatarType } from '@/object-metadata/utils/getAvatarType';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
 import { Avatar } from 'twenty-ui/display';
 import { MenuItemSuggestion } from 'twenty-ui/navigation';
 
@@ -23,6 +25,17 @@ export const MentionMenuListItem = ({
   isSelected,
   onClick,
 }: MentionMenuListItemProps) => {
+  const locale = useAppLocale();
+  const localizedObjectLabelSingular = getLocalizedObjectMetadataLabels({
+    locale,
+    objectMetadataItem: {
+      nameSingular: objectNameSingular,
+      labelSingular: objectLabelSingular,
+      labelPlural: objectLabelSingular,
+      isCustom: false,
+    },
+  }).labelSingular;
+
   const handleClick = (event?: MouseEvent) => {
     event?.preventDefault();
     event?.stopPropagation();
@@ -34,7 +47,7 @@ export const MentionMenuListItem = ({
       selected={isSelected}
       onClick={handleClick}
       text={label}
-      contextualText={objectLabelSingular}
+      contextualText={localizedObjectLabelSingular}
       contextualTextPosition="left"
       LeftIcon={() => (
         <Avatar

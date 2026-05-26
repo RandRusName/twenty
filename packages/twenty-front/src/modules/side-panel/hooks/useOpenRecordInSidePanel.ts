@@ -21,14 +21,19 @@ import {
 } from 'twenty-shared/types';
 
 import { useRunWorkflowRunOpeningInSidePanelEffects } from '@/workflow/hooks/useRunWorkflowRunOpeningInSidePanelEffects';
-import { t } from '@lingui/core/macro';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useStore } from 'jotai';
 import { useCallback } from 'react';
+import {
+  getCreateRecordLabel,
+  getLocalizedObjectMetadataLabels,
+} from 'twenty-shared/translations';
 import { isDefined } from 'twenty-shared/utils';
 import { useIcons } from 'twenty-ui/display';
 import { v4 } from 'uuid';
 
 export const useOpenRecordInSidePanel = () => {
+  const locale = useAppLocale();
   const store = useStore();
   const { getIcon } = useIcons();
 
@@ -161,13 +166,17 @@ export const useOpenRecordInSidePanel = () => {
         objectMetadataItem.nameSingular,
       );
 
-      const objectLabelSingular = objectMetadataItem.labelSingular;
+      const { labelSingular } = getLocalizedObjectMetadataLabels({
+        locale,
+        objectMetadataItem,
+      });
+      const pageTitle = isNewRecord
+        ? getCreateRecordLabel({ locale, objectMetadataItem })
+        : labelSingular;
 
       navigateSidePanelMenu({
         page: SidePanelPages.ViewRecord,
-        pageTitle: isNewRecord
-          ? t`New ${objectLabelSingular}`
-          : objectLabelSingular,
+        pageTitle,
         pageIcon: Icon,
         pageIconColor: IconColor,
         pageId: pageComponentInstanceId,
@@ -195,6 +204,7 @@ export const useOpenRecordInSidePanel = () => {
     },
     [
       getIcon,
+      locale,
       navigateSidePanelMenu,
       openNewRecordTitleCell,
       runWorkflowRunOpeningInSidePanelEffects,

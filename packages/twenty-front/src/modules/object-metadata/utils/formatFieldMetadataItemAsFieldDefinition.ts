@@ -3,7 +3,10 @@ import { type FieldDefinition } from '@/object-record/record-field/ui/types/Fiel
 import { type FieldMetadata } from '@/object-record/record-field/ui/types/FieldMetadata';
 
 import { getFieldButtonIcon } from '@/object-record/record-field/ui/utils/getFieldButtonIcon';
+import { i18n } from '@lingui/core';
 import { FieldMetadataType } from 'twenty-shared/types';
+import { getLocalizedFieldMetadataLabel } from 'twenty-shared/translations';
+import { normalizeLocale } from 'twenty-shared/utils';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 
 export type FieldMetadataItemAsFieldDefinitionProps = {
@@ -32,9 +35,15 @@ export const formatFieldMetadataItemAsFieldDefinition = ({
       ? field.morphRelations?.[0]?.type
       : undefined;
 
+  const localizedFieldLabel = getLocalizedFieldMetadataLabel({
+    locale: normalizeLocale(i18n.locale),
+    objectNameSingular: objectMetadataItem.nameSingular,
+    fieldMetadataItem: field,
+  });
+
   const fieldDefintionMetadata = {
     fieldName: field.name,
-    placeHolder: field.label,
+    placeHolder: localizedFieldLabel,
     relationType,
     morphRelations: isMorphRelation ? field.morphRelations : [],
     relationFieldMetadataId,
@@ -54,7 +63,7 @@ export const formatFieldMetadataItemAsFieldDefinition = ({
 
   return {
     fieldMetadataId: field.id,
-    label: field.label,
+    label: localizedFieldLabel,
     showLabel,
     labelWidth,
     type: field.type,

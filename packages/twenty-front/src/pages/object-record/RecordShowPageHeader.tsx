@@ -1,4 +1,6 @@
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { getObjectMetadataIdentifierFields } from '@/object-metadata/utils/getObjectMetadataIdentifierFields';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
 import { ObjectRecordShowPageBreadcrumb } from '@/object-record/record-show/components/ObjectRecordShowPageBreadcrumb';
 import { useRecordShowPagePagination } from '@/object-record/record-show/hooks/useRecordShowPagePagination';
 import { PageHeader } from '@/ui/layout/page/components/PageHeader';
@@ -12,10 +14,16 @@ export const RecordShowPageHeader = ({
   objectRecordId: string;
   children?: React.ReactNode;
 }) => {
+  const locale = useAppLocale();
   const { objectMetadataItem } = useRecordShowPagePagination(
     objectNameSingular,
     objectRecordId,
   );
+
+  const { labelPlural } = getLocalizedObjectMetadataLabels({
+    locale,
+    objectMetadataItem,
+  });
 
   const { labelIdentifierFieldMetadataItem } =
     getObjectMetadataIdentifierFields({ objectMetadataItem });
@@ -26,7 +34,7 @@ export const RecordShowPageHeader = ({
         <ObjectRecordShowPageBreadcrumb
           objectNameSingular={objectNameSingular}
           objectRecordId={objectRecordId}
-          objectLabel={objectMetadataItem.labelPlural}
+          objectLabel={labelPlural}
           labelIdentifierFieldMetadataItem={labelIdentifierFieldMetadataItem}
         />
       }

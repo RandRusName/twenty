@@ -3,6 +3,7 @@ import { useLingui } from '@lingui/react/macro';
 import { useState } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useObjectMetadataItem } from '@/object-metadata/hooks/useObjectMetadataItem';
 import { useFindManyRecords } from '@/object-record/hooks/useFindManyRecords';
 import { lastShowPageRecordIdState } from '@/object-record/record-field/ui/states/lastShowPageRecordId';
@@ -10,6 +11,7 @@ import { useSetAtomState } from '@/ui/utilities/state/jotai/hooks/useSetAtomStat
 import { useRecordIdsFromFindManyCacheRootQuery } from '@/object-record/record-show/hooks/useRecordIdsFromFindManyCacheRootQuery';
 import { useQueryVariablesFromParentView } from '@/views/hooks/useQueryVariablesFromParentView';
 import { AppPath } from 'twenty-shared/types';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
 import { isDefined } from 'twenty-shared/utils';
 import { useNavigateApp } from '~/hooks/useNavigateApp';
 
@@ -18,6 +20,7 @@ export const useRecordShowPagePagination = (
   propsObjectRecordId: string,
 ) => {
   const { t } = useLingui();
+  const locale = useAppLocale();
   const {
     objectNameSingular: paramObjectNameSingular,
     objectRecordId: paramObjectRecordId,
@@ -218,7 +221,10 @@ export const useRecordShowPagePagination = (
 
   const rankFoundInView = rankInView > -1;
 
-  const objectLabelPlural = objectMetadataItem.labelPlural;
+  const objectLabelPlural = getLocalizedObjectMetadataLabels({
+    locale,
+    objectMetadataItem,
+  }).labelPlural;
 
   const totalCount = 1 + Math.max(totalCountBefore, totalCountAfter);
 

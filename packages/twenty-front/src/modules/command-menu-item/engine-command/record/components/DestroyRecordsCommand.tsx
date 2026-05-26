@@ -4,12 +4,15 @@ import { DEFAULT_QUERY_PAGE_SIZE } from '@/object-record/constants/DefaultQueryP
 import { useIncrementalDestroyManyRecords } from '@/object-record/hooks/useIncrementalDestroyManyRecords';
 import { useRemoveSelectedRecordsFromRecordBoard } from '@/object-record/record-board/hooks/useRemoveSelectedRecordsFromRecordBoard';
 import { useResetTableRowSelection } from '@/object-record/record-table/hooks/internal/useResetTableRowSelection';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { t } from '@lingui/core/macro';
 import { AppPath, type RecordGqlOperationFilter } from 'twenty-shared/types';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
 import { isDefined } from 'twenty-shared/utils';
 import { useNavigateApp } from '~/hooks/useNavigateApp';
 
 export const DestroyRecordsCommand = () => {
+  const locale = useAppLocale();
   const { recordIndexId, objectMetadataItem, selectedRecords, graphqlFilter } =
     useHeadlessCommandContextApi();
 
@@ -62,14 +65,17 @@ export const DestroyRecordsCommand = () => {
     }
   };
 
-  const objectLabel = isSingleRecord
-    ? objectMetadataItem.labelSingular
-    : objectMetadataItem.labelPlural;
+  const { labelSingular, labelPlural } = getLocalizedObjectMetadataLabels({
+    locale,
+    objectMetadataItem,
+  });
+
+  const objectLabel = isSingleRecord ? labelSingular : labelPlural;
 
   const title = t`Permanently Destroy ${objectLabel}`;
   const subtitle = isSingleRecord
-    ? t`Are you sure you want to destroy this ${objectMetadataItem.labelSingular}? It cannot be recovered anymore.`
-    : t`Are you sure you want to destroy these ${objectMetadataItem.labelPlural}? They won't be recoverable anymore.`;
+    ? t`Are you sure you want to destroy this ${labelSingular}? It cannot be recovered anymore.`
+    : t`Are you sure you want to destroy these ${labelPlural}? They won't be recoverable anymore.`;
   const confirmButtonText = `${t`Permanently Destroy`} ${objectLabel}`;
 
   return (

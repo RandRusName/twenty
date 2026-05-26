@@ -5,6 +5,7 @@ import { contextStoreCurrentViewIdComponentState } from '@/context-store/states/
 import { contextStoreNumberOfSelectedRecordsComponentState } from '@/context-store/states/contextStoreNumberOfSelectedRecordsComponentState';
 import { isLayoutCustomizationModeEnabledState } from '@/layout-customization/states/isLayoutCustomizationModeEnabledState';
 import { useFilteredObjectMetadataItems } from '@/object-metadata/hooks/useFilteredObjectMetadataItems';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { RecordIndexPageHeaderIcon } from '@/object-record/record-index/components/RecordIndexPageHeaderIcon';
 import { useRecordIndexContextOrThrow } from '@/object-record/record-index/contexts/RecordIndexContext';
 import { PageHeader } from '@/ui/layout/page/components/PageHeader';
@@ -12,6 +13,7 @@ import { useAtomComponentStateValue } from '@/ui/utilities/state/jotai/hooks/use
 import { useAtomStateValue } from '@/ui/utilities/state/jotai/hooks/useAtomStateValue';
 import { styled } from '@linaria/react';
 import { t } from '@lingui/core/macro';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
 import { isDefined } from 'twenty-shared/utils';
 import { themeCssVariables } from 'twenty-ui/theme-constants';
 
@@ -32,6 +34,7 @@ const StyledSelectedRecordsCount = styled.div`
 `;
 
 export const RecordIndexPageHeader = () => {
+  const locale = useAppLocale();
   const { findObjectMetadataItemByNamePlural } =
     useFilteredObjectMetadataItems();
 
@@ -44,7 +47,10 @@ export const RecordIndexPageHeader = () => {
   const objectMetadataItem =
     findObjectMetadataItemByNamePlural(objectNamePlural);
 
-  const label = objectMetadataItem?.labelPlural ?? objectNamePlural;
+  const label = objectMetadataItem
+    ? getLocalizedObjectMetadataLabels({ locale, objectMetadataItem })
+        .labelPlural
+    : objectNamePlural;
 
   const pageHeaderTitle =
     contextStoreNumberOfSelectedRecords > 0 ? (

@@ -73,7 +73,7 @@ export const SettingsSecurityApprovedAccessDomainRowDropdownMenu = ({
             <MenuItem
               accent="danger"
               LeftIcon={IconTrash}
-              text="Delete"
+              text={t`Delete`}
               onClick={() => {
                 handleDeleteApprovedAccessDomain();
                 closeDropdown(dropdownId);

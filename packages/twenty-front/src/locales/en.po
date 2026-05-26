@@ -932,6 +932,11 @@ msgstr "Active installs"
 msgid "Active Sync"
 msgstr "Active Sync"
 
+#. js-lingui-id: Fo2bwm
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Actor"
+msgstr "Actor"
+
 #. js-lingui-id: m16xKo
 #: src/pages/settings/ai/components/SettingsAgentEvalsTab.tsx
 msgid "Add"
@@ -1306,6 +1311,11 @@ msgstr "Added {beautifyPastDateRelative}"
 msgid "Added to blocklist"
 msgstr "Added to blocklist"
 
+#. js-lingui-id: Du6bPw
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Address"
+msgstr "Address"
+
 #. js-lingui-id: hW/fMg
 #: src/modules/ui/field/input/components/AddressInput.tsx
 #: src/modules/settings/data-model/fields/forms/address/constants/DefaultSelectionAddressWithMessages.ts
@@ -1487,12 +1497,12 @@ msgstr "Aggregate Chart"
 #: src/pages/settings/ai/SettingsSkillForm.tsx
 #: src/pages/settings/ai/SettingsAiUsageUserDetail.tsx
 #: src/pages/settings/ai/SettingsAiPrompts.tsx
+#: src/pages/settings/ai/SettingsAI.tsx
+#: src/pages/settings/ai/SettingsAI.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentForm.tsx
-#: src/pages/settings/ai/SettingsAI.tsx
-#: src/pages/settings/ai/SettingsAI.tsx
 #: src/modules/workflow/workflow-steps/workflow-actions/utils/getActionHeaderTypeOrThrow.ts
 #: src/modules/side-panel/pages/workflow/action/components/SidePanelWorkflowSelectAction.tsx
 #: src/modules/settings/roles/role-permissions/permission-flags/hooks/useSettingsRolePermissionFlagConfig.ts
@@ -2307,6 +2317,11 @@ msgstr "Are you sure you want to update the role of this user from \"{oldRoleLab
 #: src/modules/spreadsheet-import/provider/components/SpreadsheetImport.tsx
 msgid "Are you sure? Your current information will not be saved."
 msgstr "Are you sure? Your current information will not be saved."
+
+#. js-lingui-id: pT1gFQ
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Array"
+msgstr "Array"
 
 #. js-lingui-id: cybVUo
 #: src/modules/settings/members/components/MemberInfosTab.tsx
@@ -4523,6 +4538,7 @@ msgid "currencies"
 msgstr "currencies"
 
 #. js-lingui-id: Q2lUR2
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/object-record/record-field/ui/meta-types/input/components/CurrencyFieldInput.tsx
 msgid "Currency"
 msgstr "Currency"
@@ -4821,6 +4837,7 @@ msgstr "Database event"
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/components/SettingsAgentLogsTab.tsx
 #: src/pages/settings/ai/components/SettingsAgentLogsTab.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/object-record/record-table/record-table-footer/components/RecordTableColumnAggregateFooterMenuContent.tsx
 #: src/modules/object-record/record-table/record-table-footer/components/RecordTableColumnAggregateFooterDropdownContent.tsx
 #: src/modules/object-record/record-board/record-board-column/components/RecordBoardColumnHeaderAggregateDropdownMenuContent.tsx
@@ -4828,6 +4845,11 @@ msgstr "Database event"
 #: src/modules/ai/constants/AgentChatThreadGroupByLabels.ts
 msgid "Date"
 msgstr "Date"
+
+#. js-lingui-id: Wv92XG
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Date and Time"
+msgstr "Date and Time"
 
 #. js-lingui-id: QIIAIQ
 #: src/modules/views/view-picker/components/ViewPickerContentCreateMode.tsx
@@ -5086,6 +5108,7 @@ msgstr "delete"
 #: src/modules/side-panel/pages/page-layout/components/RegularTabSettingsContent.tsx
 #: src/modules/side-panel/pages/page-layout/components/CanvasTabSettingsContent.tsx
 #: src/modules/settings/security/components/SSO/SettingsSecuritySSORowDropdownMenu.tsx
+#: src/modules/settings/security/components/approvedAccessDomains/SettingsSecurityApprovedAccessDomainRowDropdownMenu.tsx
 #: src/modules/settings/logic-functions/components/tabs/SettingsLogicFunctionTabEnvironmentVariableTableRow.tsx
 #: src/modules/settings/emailing-domains/components/SettingsEmailingDomainRowDropdownMenu.tsx
 #: src/modules/settings/domains/components/SettingPublicDomainRowDropdownMenu.tsx
@@ -5546,6 +5569,11 @@ msgstr "Don't create contacts from/to Gmail, Outlook emails"
 msgid "Don't sync emails from team@ support@ noreply@..."
 msgstr "Don't sync emails from team@ support@ noreply@..."
 
+#. js-lingui-id: DPfwMq
+#: src/modules/page-layout/widgets/fields/components/FieldsConfigurationGroupRenameInput.tsx
+msgid "Done"
+msgstr "Done"
+
 #. js-lingui-id: Wm78zZ
 #: src/modules/settings/experience/components/NumberFormatSelect.tsx
 msgid "Dots and comma"
@@ -5996,6 +6024,7 @@ msgstr "Emailing Domains"
 #: src/pages/settings/accounts/SettingsAccountsEmails.tsx
 #: src/pages/settings/accounts/SettingsAccountsEmails.tsx
 #: src/modules/settings/hooks/useSettingsNavigationItems.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/settings/accounts/components/SettingsAccountsSettingsSection.tsx
 msgid "Emails"
 msgstr "Emails"
@@ -7358,6 +7387,11 @@ msgstr "File no longer exists - {0}"
 msgid "File upload failed"
 msgstr "File upload failed"
 
+#. js-lingui-id: sER+bs
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Files"
+msgstr "Files"
+
 #. js-lingui-id: BZGmTs
 #: src/modules/settings/logic-functions/components/tabs/SettingsLogicFunctionTestTab.tsx
 msgid "Fill with sample input from"
@@ -7626,6 +7660,11 @@ msgstr "Front Components"
 #: src/pages/onboarding/internal/ChooseYourPlanContent.tsx
 msgid "Full access"
 msgstr "Full access"
+
+#. js-lingui-id: /4TFrF
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Full Name"
+msgstr "Full Name"
 
 #. js-lingui-id: Ld0Tt4
 #: src/modules/side-panel/components/hooks/usePageLayoutHeaderInfo.ts
@@ -8894,6 +8933,7 @@ msgstr "Join {workspaceName} team"
 
 #. js-lingui-id: B2Zb/F
 #: src/pages/settings/ai/components/SettingsAgentResponseFormat.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 msgid "JSON"
 msgstr "JSON"
 
@@ -9360,6 +9400,11 @@ msgstr "linked a calendar event with {labelIdentifierValue}"
 #: src/modules/activities/timeline-activities/rows/message/components/EventRowMessage.tsx
 msgid "linked an email with"
 msgstr "linked an email with"
+
+#. js-lingui-id: Rj01Fz
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Links"
+msgstr "Links"
 
 #. js-lingui-id: 82kQhK
 #: src/modules/advanced-text-editor/extensions/slash-command/DefaultSlashCommands.ts
@@ -10045,6 +10090,11 @@ msgstr "More options"
 msgid "More widgets"
 msgstr "More widgets"
 
+#. js-lingui-id: pyWk0f
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Morph Relation"
+msgstr "Morph Relation"
+
 #. js-lingui-id: SOHptZ
 #: src/pages/settings/applications/components/SettingsApplicationRegistrationGeneralStats.tsx
 msgid "Most installed version"
@@ -10100,6 +10150,11 @@ msgstr "Move up"
 #: src/modules/side-panel/pages/page-layout/components/WidgetSettingsPlacementSection.tsx
 msgid "Move Up"
 msgstr "Move Up"
+
+#. js-lingui-id: TTNKlL
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Multi-select"
+msgstr "Multi-select"
 
 #. js-lingui-id: asWVA5
 #: src/modules/object-record/spreadsheet-import/utils/getSpreadSheetFieldValidationDefinitions.ts
@@ -11187,6 +11242,7 @@ msgstr "number"
 
 #. js-lingui-id: HptUxX
 #: src/modules/ui/input/components/internal/date/components/RelativeDatePickerHeader.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/settings/data-model/fields/forms/number/constants/NumberDataModelSelectOptions.ts
 #: src/modules/ai/constants/OutputFieldTypeOptions.ts
 msgid "Number"
@@ -11970,6 +12026,11 @@ msgstr "Phone Number"
 msgid "Phone number copied to clipboard"
 msgstr "Phone number copied to clipboard"
 
+#. js-lingui-id: m2ivgq
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Phones"
+msgstr "Phones"
+
 #. js-lingui-id: vqKcU0
 #: src/modules/workflow/workflow-variables/components/WorkflowVariablesDropdownStepItems.tsx
 #: src/modules/workflow/workflow-steps/components/WorkflowDropdownStepOutputItems.tsx
@@ -12460,6 +12521,7 @@ msgstr "Ran {formattedName}"
 
 #. js-lingui-id: z1U/Fh
 #: src/modules/ui/field/input/components/RatingInput.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 msgid "Rating"
 msgstr "Rating"
 
@@ -12730,6 +12792,8 @@ msgid "Region where inference data is processed (optional)"
 msgstr "Region where inference data is processed (optional)"
 
 #. js-lingui-id: h9AYFD
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+#: src/modules/settings/data-model/fields/forms/components/SettingsObjectNewFieldSelector.tsx
 #: src/modules/settings/data-model/fields/forms/components/SettingsObjectNewFieldSelector.tsx
 msgid "Relation"
 msgstr "Relation"
@@ -13162,6 +13226,7 @@ msgstr "Revoking this key will invalidate every JWT signed with it. Users with a
 #. js-lingui-id: NP5Nbf
 #: src/modules/side-panel/pages/page-layout/components/SidePanelPageLayoutDashboardWidgetTypeSelect.tsx
 #: src/modules/side-panel/hooks/useOpenRichTextInSidePanel.ts
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/page-layout/utils/getWidgetTitle.ts
 msgid "Rich Text"
 msgstr "Rich Text"
@@ -13776,6 +13841,7 @@ msgstr "Seeded"
 #. js-lingui-id: rG3WVm
 #: src/modules/spreadsheet-import/steps/components/ValidationStep/components/columns.tsx
 #: src/modules/spreadsheet-import/steps/components/SelectHeaderStep/components/SelectColumn.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/object-record/record-field/ui/form-types/components/FormSingleRecordFieldChip.tsx
 msgid "Select"
 msgstr "Select"
@@ -14487,8 +14553,8 @@ msgstr "Sorry, something went wrong"
 #: src/modules/object-record/record-table/record-table-header/components/RecordTableColumnHeadDropdownMenu.tsx
 #: src/modules/object-record/object-sort-dropdown/components/ObjectSortDropdownButton.tsx
 #: src/modules/object-record/object-sort-dropdown/components/ObjectSortDropdownButton.tsx
-#: src/modules/object-record/object-options-dropdown/components/ObjectOptionsDropdownRecordGroupsContent.tsx
 #: src/modules/object-record/object-options-dropdown/components/ObjectOptionsDropdownRecordGroupSortContent.tsx
+#: src/modules/object-record/object-options-dropdown/components/ObjectOptionsDropdownRecordGroupsContent.tsx
 msgid "Sort"
 msgstr "Sort"
 
@@ -14803,8 +14869,8 @@ msgstr "Subscribe"
 
 #. js-lingui-id: ShbDuS
 #: src/modules/settings/billing/components/SettingsBillingSubscriptionInfo.tsx
-#: src/modules/ai/components/AiChatCreditsExhaustedMessage.tsx
 #: src/modules/ai/components/AIChatNoMoreBillingCreditsBanner.tsx
+#: src/modules/ai/components/AiChatCreditsExhaustedMessage.tsx
 msgid "Subscribe Now"
 msgstr "Subscribe Now"
 
@@ -15129,6 +15195,7 @@ msgstr "text"
 
 #. js-lingui-id: xeiujy
 #: src/modules/workflow/workflow-steps/workflow-actions/http-request-action/components/BodyInput.tsx
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
 #: src/modules/ai/constants/OutputFieldTypeOptions.ts
 #: src/modules/advanced-text-editor/extensions/slash-command/DefaultSlashCommands.ts
 msgid "Text"
@@ -15960,6 +16027,11 @@ msgstr "Triggers the function with an HTTP request"
 msgid "True"
 msgstr "True"
 
+#. js-lingui-id: rfp3gh
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "True/False"
+msgstr "True/False"
+
 #. js-lingui-id: haaL9N
 #: src/pages/settings/workspace/SettingsApiWebhooks.tsx
 #: src/pages/settings/developers/api-keys/SettingsApiKeys.tsx
@@ -16182,6 +16254,11 @@ msgstr "Unique"
 #: src/modules/workflow/workflow-steps/workflow-actions/components/WorkflowEditActionUpsertRecord.tsx
 msgid "Unique fields"
 msgstr "Unique fields"
+
+#. js-lingui-id: MuBqC0
+#: src/modules/settings/data-model/utils/getTranslatedSettingsFieldTypeLabel.ts
+msgid "Unique ID"
+msgstr "Unique ID"
 
 #. js-lingui-id: pRpC/r
 #: src/modules/side-panel/pages/page-layout/constants/settings/SuffixSetting.ts
@@ -17375,11 +17452,11 @@ msgstr "Workflows"
 #: src/pages/settings/ai/SettingsSkillForm.tsx
 #: src/pages/settings/ai/SettingsAiUsageUserDetail.tsx
 #: src/pages/settings/ai/SettingsAiPrompts.tsx
+#: src/pages/settings/ai/SettingsAI.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentTurnDetail.tsx
 #: src/pages/settings/ai/SettingsAgentForm.tsx
-#: src/pages/settings/ai/SettingsAI.tsx
 #: src/pages/settings/admin-panel/SettingsAdminWorkspaceChatThread.tsx
 #: src/modules/views/view-picker/components/ViewPickerListContent.tsx
 #: src/modules/sign-in-background-mock/components/BackgroundMockNavigationDrawer.tsx
