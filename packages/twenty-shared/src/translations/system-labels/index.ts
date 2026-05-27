@@ -4,3 +4,7 @@ export { getLocalizedFolderNavigationName } from './getLocalizedFolderNavigation
 export { getLocalizedPageLayoutWidgetTitle } from './getLocalizedPageLayoutWidgetTitle';
 export { getLocalizedViewName } from './getLocalizedViewName';
 export { STANDARD_SYSTEM_LABEL_TRANSLATIONS } from './standardSystemLabelTranslations';
+export type {
+  StandardSystemLabelCategory,
+  StandardSystemLabelLocale,
+} from './standardSystemLabelTranslations';

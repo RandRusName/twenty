@@ -3,7 +3,7 @@ import { type NavigationMenuItem } from '~/generated-metadata/graphql';
 
 import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { getNavigationMenuItemLabel } from '@/navigation-menu-item/display/utils/getNavigationMenuItemLabel';
-import { getLocalizedFolderNavigationName } from 'twenty-shared/translations';
+import { getLocalizedFolderNavigationName } from 'twenty-shared/translations/system-labels';
 import { useSelectedNavigationMenuItemEditItem } from '@/navigation-menu-item/edit/hooks/useSelectedNavigationMenuItemEditItem';
 import { useSelectedNavigationMenuItemEditItemObjectMetadata } from '@/navigation-menu-item/edit/hooks/useSelectedNavigationMenuItemEditItemObjectMetadata';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';

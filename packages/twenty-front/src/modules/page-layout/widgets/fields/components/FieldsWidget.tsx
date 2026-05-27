@@ -14,7 +14,7 @@ import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
 import { SidePanelProvider } from '@/ui/layout/side-panel/contexts/SidePanelContext';
 import { styled } from '@linaria/react';
 import { t } from '@lingui/core/macro';
-import { getLocalizedFieldGroupName } from 'twenty-shared/translations';
+import { getLocalizedFieldGroupName } from 'twenty-shared/translations/system-labels';
 import {
   AnimatedPlaceholder,
   AnimatedPlaceholderEmptyContainer,

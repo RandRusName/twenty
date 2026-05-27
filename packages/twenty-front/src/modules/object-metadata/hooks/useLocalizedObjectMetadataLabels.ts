@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import {
   getCreateRecordLabel,
   getLocalizedObjectMetadataLabels,
-} from 'twenty-shared/translations';
+} from 'twenty-shared/translations/metadata';
 
 export const useLocalizedObjectMetadataLabels = (
   objectMetadataItem: EnrichedObjectMetadataItem,

@@ -18,7 +18,7 @@ import { useRecordIndexIdFromCurrentContextStore } from '@/object-record/record-
 import { RECORD_INDEX_DRAG_SELECT_BOUNDARY_CLASS } from '@/ui/utilities/drag-select/constants/RecordIndecDragSelectBoundaryClass';
 import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { PageTitle } from '@/ui/utilities/page-title/components/PageTitle';
-import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations/metadata';
 import { ViewComponentInstanceContext } from '@/views/states/contexts/ViewComponentInstanceContext';
 import { styled } from '@linaria/react';
 import { useStore } from 'jotai';

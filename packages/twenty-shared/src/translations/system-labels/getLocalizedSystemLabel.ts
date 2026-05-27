@@ -5,6 +5,7 @@ import { normalizeLocale } from '@/utils/validation/normalizeLocale';
 import {
   STANDARD_SYSTEM_LABEL_TRANSLATIONS,
   type StandardSystemLabelLocale,
+  type StandardSystemLabelCategory,
 } from './standardSystemLabelTranslations';
 
 const isSupportedLocale = (
@@ -17,7 +18,7 @@ export const getLocalizedSystemLabel = ({
   key,
 }: {
   locale: AppLocale | string;
-  category: keyof (typeof STANDARD_SYSTEM_LABEL_TRANSLATIONS)['ru-RU'];
+  category: StandardSystemLabelCategory;
   key: string;
 }): string | undefined => {
   const normalizedLocale = normalizeLocale(locale);

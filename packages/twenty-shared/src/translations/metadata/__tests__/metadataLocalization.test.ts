@@ -195,12 +195,12 @@ describe('getCreateRecordLabel', () => {
   });
 });
 
-describe('twenty-shared/translations package exports', () => {
-  it('should expose metadata localization helpers from the package barrel', async () => {
-    const translations = await import('twenty-shared/translations');
+describe('twenty-shared/translations/metadata package exports', () => {
+  it('should expose metadata localization helpers from the subpath entrypoint', async () => {
+    const metadata = await import('twenty-shared/translations/metadata');
 
-    expect(translations.getLocalizedObjectMetadataLabels).toBeDefined();
-    expect(translations.getLocalizedFieldMetadataLabel).toBeDefined();
-    expect(translations.getCreateRecordLabel).toBeDefined();
+    expect(metadata.getLocalizedObjectMetadataLabels).toBeDefined();
+    expect(metadata.getLocalizedFieldMetadataLabel).toBeDefined();
+    expect(metadata.getCreateRecordLabel).toBeDefined();
   });
 });

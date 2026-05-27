@@ -8,7 +8,7 @@ import { useResetTableRowSelection } from '@/object-record/record-table/hooks/in
 import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { t } from '@lingui/core/macro';
 import { type RecordGqlOperationFilter } from 'twenty-shared/types';
-import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations/metadata';
 import { isDefined } from 'twenty-shared/utils';
 
 export const RestoreRecordsCommand = () => {

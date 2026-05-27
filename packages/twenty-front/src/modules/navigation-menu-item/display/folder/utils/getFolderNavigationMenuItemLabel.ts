@@ -1,4 +1,5 @@
-import { getLocalizedFolderNavigationName, type AppLocale } from 'twenty-shared/translations';
+import { getLocalizedFolderNavigationName } from 'twenty-shared/translations/system-labels';
+import { type AppLocale } from 'twenty-shared/translations';
 import { type NavigationMenuItem } from '~/generated-metadata/graphql';
 
 export const getFolderNavigationMenuItemLabel = (

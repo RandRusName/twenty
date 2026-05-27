@@ -230,6 +230,25 @@ const computePackageJsonFilesAndExportsConfig = (
     ...generateModulePackageExports(moduleDirectories),
   } satisfies ExportsConfig;
 
+  const translationsSubpathExports: ExportsConfig = {
+    // Stable overlay entrypoints for runtime system/data label helpers.
+    // These are nested under `translations/*` to avoid relying on the
+    // generated `translations/index.ts` barrel from downstream code.
+    './translations/metadata': {
+      types: './dist/translations/metadata/index.d.ts',
+      // `build:individual` may not emit separate JS entrypoints for nested
+      // translation subpaths; the stable overlay entrypoint can still point
+      // to the compiled `translations` bundle.
+      import: './dist/translations.mjs',
+      require: './dist/translations.cjs',
+    },
+    './translations/system-labels': {
+      types: './dist/translations/system-labels/index.d.ts',
+      import: './dist/translations.mjs',
+      require: './dist/translations.cjs',
+    },
+  };
+
   const typesVersionsEntries = entrypoints.reduce<Record<string, string[]>>(
     (acc, moduleName) => ({
       ...acc,
@@ -239,8 +258,16 @@ const computePackageJsonFilesAndExportsConfig = (
   );
 
   return {
-    exports,
-    typesVersions: { '*': typesVersionsEntries },
+    exports: { ...exports, ...translationsSubpathExports },
+    typesVersions: {
+      '*': {
+        ...typesVersionsEntries,
+        'translations/metadata': ['dist/translations/metadata/index.d.ts'],
+        'translations/system-labels': [
+          'dist/translations/system-labels/index.d.ts',
+        ],
+      },
+    },
     files: ['dist', ...entrypoints],
   };
 };

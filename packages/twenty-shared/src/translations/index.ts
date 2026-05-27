@@ -34,5 +34,8 @@ export { getLocalizedFolderNavigationName } from './system-labels/getLocalizedFo
 export { getLocalizedPageLayoutWidgetTitle } from './system-labels/getLocalizedPageLayoutWidgetTitle';
 export { getLocalizedSystemLabel } from './system-labels/getLocalizedSystemLabel';
 export { getLocalizedViewName } from './system-labels/getLocalizedViewName';
-export type { StandardSystemLabelLocale } from './system-labels/standardSystemLabelTranslations';
+export type {
+  StandardSystemLabelLocale,
+  StandardSystemLabelCategory,
+} from './system-labels/standardSystemLabelTranslations';
 export { STANDARD_SYSTEM_LABEL_TRANSLATIONS } from './system-labels/standardSystemLabelTranslations';

@@ -84,6 +84,16 @@ describe('getLocalizedPageLayoutWidgetTitle', () => {
   });
 });
 
+describe('twenty-shared/translations/system-labels package exports', () => {
+  it('should expose system-label helpers from the subpath entrypoint', async () => {
+    const systemLabels = await import('twenty-shared/translations/system-labels');
+
+    expect(systemLabels.getLocalizedViewName).toBeDefined();
+    expect(systemLabels.getLocalizedFieldGroupName).toBeDefined();
+    expect(systemLabels.getLocalizedCommandMenuItemDisplayFields).toBeDefined();
+  });
+});
+
 describe('getLocalizedCommandMenuItemDisplayFields', () => {
   const taskObjectMetadataItem = {
     nameSingular: 'task',
@@ -101,6 +111,40 @@ describe('getLocalizedCommandMenuItemDisplayFields', () => {
           objectMetadataItem: taskObjectMetadataItem,
         },
         label: 'Create new Task',
+        shortLabel: 'New Task',
+      }),
+    ).toEqual({
+      label: 'Создать задачу',
+      shortLabel: 'Создать задачу',
+    });
+  });
+
+  it('should not localize a non-create command that starts with "New ..."', () => {
+    expect(
+      getLocalizedCommandMenuItemDisplayFields({
+        locale: 'ru-RU',
+        engineComponentKey: 'SOME_OTHER_COMMAND_KEY',
+        commandMenuContextApi: {
+          objectMetadataItem: taskObjectMetadataItem,
+        },
+        label: 'New Task',
+        shortLabel: 'New Task',
+      }),
+    ).toEqual({
+      label: 'New Task',
+      shortLabel: 'New Task',
+    });
+  });
+
+  it('should use legacy regex fallback only when engineComponentKey is missing', () => {
+    expect(
+      getLocalizedCommandMenuItemDisplayFields({
+        locale: 'ru-RU',
+        engineComponentKey: null,
+        commandMenuContextApi: {
+          objectMetadataItem: taskObjectMetadataItem,
+        },
+        label: 'New Task',
         shortLabel: 'New Task',
       }),
     ).toEqual({

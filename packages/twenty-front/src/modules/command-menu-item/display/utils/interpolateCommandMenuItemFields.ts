@@ -1,5 +1,5 @@
 import { type CommandMenuContextApi, type Nullable } from 'twenty-shared/types';
-import { getLocalizedCommandMenuItemDisplayFields } from 'twenty-shared/translations';
+import { getLocalizedCommandMenuItemDisplayFields } from 'twenty-shared/translations/system-labels';
 import { interpolateCommandMenuItemTemplate } from 'twenty-shared/utils';
 import { type CommandMenuItemFieldsFragment } from '~/generated-metadata/graphql';
 

@@ -8,7 +8,7 @@ import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { msg } from '@lingui/core/macro';
 import { useLingui } from '@lingui/react/macro';
 import { AppPath, type RecordGqlOperationFilter } from 'twenty-shared/types';
-import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations/metadata';
 import { isDefined } from 'twenty-shared/utils';
 import { useNavigateApp } from '~/hooks/useNavigateApp';
 

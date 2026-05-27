@@ -4,10 +4,8 @@ import { type FieldMetadata } from '@/object-record/record-field/ui/types/FieldM
 
 import { getFieldButtonIcon } from '@/object-record/record-field/ui/utils/getFieldButtonIcon';
 import { FieldMetadataType } from 'twenty-shared/types';
-import {
-  type AppLocale,
-  getLocalizedFieldMetadataLabel,
-} from 'twenty-shared/translations';
+import { type AppLocale } from 'twenty-shared/translations';
+import { getLocalizedFieldMetadataLabel } from 'twenty-shared/translations/metadata';
 import { type FieldMetadataItem } from '@/object-metadata/types/FieldMetadataItem';
 
 export type FieldMetadataItemAsFieldDefinitionProps = {

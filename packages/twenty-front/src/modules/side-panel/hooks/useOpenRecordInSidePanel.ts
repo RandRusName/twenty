@@ -27,7 +27,7 @@ import { useCallback } from 'react';
 import {
   getCreateRecordLabel,
   getLocalizedObjectMetadataLabels,
-} from 'twenty-shared/translations';
+} from 'twenty-shared/translations/metadata';
 import { isDefined } from 'twenty-shared/utils';
 import { useIcons } from 'twenty-ui/display';
 import { v4 } from 'uuid';

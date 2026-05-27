@@ -32,3 +32,9 @@ export const STANDARD_SYSTEM_LABEL_TRANSLATIONS = {
 } as const;
 
 export type StandardSystemLabelLocale = keyof typeof STANDARD_SYSTEM_LABEL_TRANSLATIONS;
+
+// Categories that exist under each supported locale (e.g. navigation, views, etc).
+// Keeping this as a dedicated public type avoids tying helper signatures to a
+// specific locale key like `'ru-RU'`.
+export type StandardSystemLabelCategory =
+  keyof (typeof STANDARD_SYSTEM_LABEL_TRANSLATIONS)[StandardSystemLabelLocale];

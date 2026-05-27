@@ -24,3 +24,23 @@ To backfill missing Russian entries in `ru-RU.po` after Crowdin sync is unavaila
 node packages/twenty-utils/fill-ru-po-backlog.mjs
 yarn workspace twenty-front i18n:compile
 ```
+
+### Runtime overlay (system/data labels)
+
+In addition to Lingui UI strings, the app also localizes some *runtime*
+labels that are derived from metadata / seeded system values:
+
+1. Lingui UI strings (compiled from `src/locales/*.po`)
+2. Metadata labels (localized helpers from `twenty-shared/translations/metadata`)
+3. System label overlay (seeded labels like "Workflows", widget titles, and
+   group names via `twenty-shared/translations/system-labels`)
+
+The overlay is intentionally string-based and does not mutate database
+metadata.
+
+Validation:
+
+```bash
+yarn workspace twenty-front i18n:check
+npx jest packages/twenty-shared/src/translations/system-labels/__tests__/*.test.ts --config=packages/twenty-shared/jest.config.mjs
+```

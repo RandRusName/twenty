@@ -2,7 +2,7 @@ import { type MouseEvent } from 'react';
 
 import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { getAvatarType } from '@/object-metadata/utils/getAvatarType';
-import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations/metadata';
 import { Avatar } from 'twenty-ui/display';
 import { MenuItemSuggestion } from 'twenty-ui/navigation';
 

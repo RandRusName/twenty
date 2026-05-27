@@ -62,11 +62,18 @@ export const getLocalizedCommandMenuItemDisplayFields = ({
   const isCreateNewRecordCommand =
     engineComponentKey === CREATE_NEW_RECORD_ENGINE_KEY;
 
+  // Regex fallback is a secondary safety net for cases where we can't
+  // reliably determine the engine command key (e.g. missing engineComponentKey).
+  // When the key exists and indicates a non-create command, we intentionally
+  // do not touch labels that merely start with "New ...".
+  const canUseLegacyRegexFallback = engineComponentKey == null;
+
   const shouldLocalizeCreateLabel =
     isDefined(objectMetadataItem) &&
     (isCreateNewRecordCommand ||
-      isCreateRecordInterpolatedLabel(label) ||
-      (isDefined(shortLabel) && isCreateRecordInterpolatedLabel(shortLabel)));
+      (canUseLegacyRegexFallback &&
+        (isCreateRecordInterpolatedLabel(label) ||
+          (isDefined(shortLabel) && isCreateRecordInterpolatedLabel(shortLabel)))));
 
   if (!shouldLocalizeCreateLabel) {
     return { label, shortLabel };
@@ -78,11 +85,14 @@ export const getLocalizedCommandMenuItemDisplayFields = ({
   });
 
   const shouldLocalizeLabel =
-    isCreateNewRecordCommand || isCreateRecordInterpolatedLabel(label);
+    isCreateNewRecordCommand ||
+    (canUseLegacyRegexFallback && isCreateRecordInterpolatedLabel(label));
 
   const shouldLocalizeShortLabel =
     isCreateNewRecordCommand ||
-    (isDefined(shortLabel) && isCreateRecordInterpolatedLabel(shortLabel));
+    (canUseLegacyRegexFallback &&
+      isDefined(shortLabel) &&
+      isCreateRecordInterpolatedLabel(shortLabel));
 
   return {
     label: shouldLocalizeLabel ? createRecordLabel : label,

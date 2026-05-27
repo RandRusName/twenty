@@ -134,6 +134,16 @@
       "types": "./dist/workspace/index.d.ts",
       "import": "./dist/workspace.mjs",
       "require": "./dist/workspace.cjs"
+    },
+    "./translations/metadata": {
+      "types": "./dist/translations/metadata/index.d.ts",
+      "import": "./dist/translations.mjs",
+      "require": "./dist/translations.cjs"
+    },
+    "./translations/system-labels": {
+      "types": "./dist/translations/system-labels/index.d.ts",
+      "import": "./dist/translations.mjs",
+      "require": "./dist/translations.cjs"
     }
   },
   "files": [
@@ -196,6 +206,12 @@
       ],
       "workspace": [
         "dist/workspace/index.d.ts"
+      ],
+      "translations/metadata": [
+        "dist/translations/metadata/index.d.ts"
+      ],
+      "translations/system-labels": [
+        "dist/translations/system-labels/index.d.ts"
       ]
     }
   }

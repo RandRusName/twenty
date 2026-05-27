@@ -1,8 +1,6 @@
 import { type View } from '@/views/types/View';
-import {
-  getLocalizedViewName,
-  type AppLocale,
-} from 'twenty-shared/translations';
+import { getLocalizedViewName } from 'twenty-shared/translations/system-labels';
+import { type AppLocale } from 'twenty-shared/translations';
 import { isDefined } from 'twenty-shared/utils';
 import { type NavigationMenuItem } from '~/generated-metadata/graphql';
 

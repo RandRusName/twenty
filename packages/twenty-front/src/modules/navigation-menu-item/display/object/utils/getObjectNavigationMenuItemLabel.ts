@@ -1,8 +1,8 @@
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import {
-  getLocalizedObjectMetadataLabels,
   type AppLocale,
 } from 'twenty-shared/translations';
+import { getLocalizedObjectMetadataLabels } from 'twenty-shared/translations/metadata';
 import { type NavigationMenuItem } from '~/generated-metadata/graphql';
 
 export const getObjectNavigationMenuItemLabel = (
