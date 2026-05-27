@@ -8,11 +8,13 @@ import { FieldsWidgetFieldList } from '@/page-layout/widgets/fields/components/F
 import { FieldsWidgetGroupContainer } from '@/page-layout/widgets/fields/components/FieldsWidgetGroupContainer';
 import { useFieldsWidgetGroupsForDisplay } from '@/page-layout/widgets/fields/hooks/useFieldsWidgetGroupsForDisplay';
 import { useFieldsWidgetHiddenFieldsForDisplay } from '@/page-layout/widgets/fields/hooks/useFieldsWidgetHiddenFieldsForDisplay';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useLayoutRenderingContext } from '@/ui/layout/contexts/LayoutRenderingContext';
 import { useTargetRecord } from '@/ui/layout/contexts/useTargetRecord';
 import { SidePanelProvider } from '@/ui/layout/side-panel/contexts/SidePanelContext';
 import { styled } from '@linaria/react';
 import { t } from '@lingui/core/macro';
+import { getLocalizedFieldGroupName } from 'twenty-shared/translations';
 import {
   AnimatedPlaceholder,
   AnimatedPlaceholderEmptyContainer,
@@ -59,6 +61,7 @@ type FieldsWidgetProps = {
 };
 
 export const FieldsWidget = ({ widget }: FieldsWidgetProps) => {
+  const locale = useAppLocale();
   const targetRecord = useTargetRecord();
   const { isInSidePanel } = useLayoutRenderingContext();
 
@@ -146,7 +149,14 @@ export const FieldsWidget = ({ widget }: FieldsWidgetProps) => {
             </StyledInlineFieldsPropertyBox>
           ) : (
             groups.map((group) => (
-              <FieldsWidgetGroupContainer key={group.id} title={group.name}>
+              <FieldsWidgetGroupContainer
+                key={group.id}
+                title={getLocalizedFieldGroupName({
+                  locale,
+                  groupName: group.name,
+                  objectNameSingular: targetRecord.targetObjectNameSingular,
+                })}
+              >
                 <StyledPropertyBox>
                   <FieldsWidgetFieldList
                     fields={group.fields}

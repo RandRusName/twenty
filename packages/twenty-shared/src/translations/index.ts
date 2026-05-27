@@ -28,3 +28,11 @@ export type {
   StandardObjectMetadataTranslationsByLocale,
   StandardFieldMetadataTranslationsByLocale,
 } from './metadata/types';
+export { getLocalizedCommandMenuItemDisplayFields } from './system-labels/getLocalizedCommandMenuItemDisplayFields';
+export { getLocalizedFieldGroupName } from './system-labels/getLocalizedFieldGroupName';
+export { getLocalizedFolderNavigationName } from './system-labels/getLocalizedFolderNavigationName';
+export { getLocalizedPageLayoutWidgetTitle } from './system-labels/getLocalizedPageLayoutWidgetTitle';
+export { getLocalizedSystemLabel } from './system-labels/getLocalizedSystemLabel';
+export { getLocalizedViewName } from './system-labels/getLocalizedViewName';
+export type { StandardSystemLabelLocale } from './system-labels/standardSystemLabelTranslations';
+export { STANDARD_SYSTEM_LABEL_TRANSLATIONS } from './system-labels/standardSystemLabelTranslations';

@@ -4,6 +4,7 @@ import { interpolateCommandMenuItemFields } from '@/command-menu-item/display/ut
 import { useCommandMenuItemClick } from '@/command-menu-item/hooks/useCommandMenuItemClick';
 import { getCommandMenuItemLabel } from '@/command-menu-item/utils/getCommandMenuItemLabel';
 import { CommandMenuButton } from '@/command-menu/components/CommandMenuButton';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { CommandMenuItem } from '@/command-menu/components/CommandMenuItem';
 import { SelectableListItem } from '@/ui/layout/selectable-list/components/SelectableListItem';
 import { SelectableListComponentInstanceContext } from '@/ui/layout/selectable-list/states/contexts/SelectableListComponentInstanceContext';
@@ -36,6 +37,7 @@ type CommandMenuItemButtonRendererProps = CommandMenuItemRendererProps;
 const CommandMenuItemButtonRenderer = ({
   item,
 }: CommandMenuItemButtonRendererProps) => {
+  const locale = useAppLocale();
   const { commandMenuContextApi, isInPreviewMode } =
     useContext(CommandMenuContext);
   const { getIcon } = useIcons();
@@ -43,6 +45,7 @@ const CommandMenuItemButtonRenderer = ({
   const { iconKey, label, shortLabel } = interpolateCommandMenuItemFields(
     item,
     commandMenuContextApi,
+    locale,
   );
 
   const Icon = getIcon(iconKey, COMMAND_MENU_DEFAULT_ICON);
@@ -78,12 +81,14 @@ const CommandMenuItemSelectableRenderer = ({
 }: CommandMenuItemRendererProps & {
   displayType: 'listItem' | 'dropdownItem';
 }) => {
+  const locale = useAppLocale();
   const { commandMenuContextApi } = useContext(CommandMenuContext);
   const { getIcon } = useIcons();
 
   const { iconKey, label } = interpolateCommandMenuItemFields(
     item,
     commandMenuContextApi,
+    locale,
   );
 
   const Icon = getIcon(iconKey, COMMAND_MENU_DEFAULT_ICON);

@@ -10,13 +10,32 @@ import { getNavigationMenuItemLabel } from '@/navigation-menu-item/display/utils
 
 type ObjectMetadata = Pick<
   EnrichedObjectMetadataItem,
-  'id' | 'labelPlural' | 'nameSingular'
+  'id' | 'labelPlural' | 'labelSingular' | 'nameSingular' | 'isCustom'
 >;
 type ViewMetadata = Pick<View, 'id' | 'name' | 'objectMetadataId' | 'key'>;
 
 const objectMetadataItems: ObjectMetadata[] = [
-  { id: 'obj-1', labelPlural: 'Notes', nameSingular: 'note' },
-  { id: 'obj-2', labelPlural: 'Companies', nameSingular: 'company' },
+  {
+    id: 'obj-1',
+    labelPlural: 'Notes',
+    labelSingular: 'Note',
+    nameSingular: 'note',
+    isCustom: false,
+  },
+  {
+    id: 'obj-2',
+    labelPlural: 'Companies',
+    labelSingular: 'Company',
+    nameSingular: 'company',
+    isCustom: false,
+  },
+  {
+    id: 'obj-3',
+    labelPlural: 'Tasks',
+    labelSingular: 'Task',
+    nameSingular: 'task',
+    isCustom: false,
+  },
 ];
 
 const views: ViewMetadata[] = [
@@ -51,7 +70,9 @@ describe('getNavigationMenuItemLabel', () => {
         targetObjectMetadataId: 'obj-1',
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         'Notes',
       );
     });
@@ -63,7 +84,9 @@ describe('getNavigationMenuItemLabel', () => {
         targetObjectMetadataId: 'nonexistent',
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         '',
       );
     });
@@ -77,7 +100,9 @@ describe('getNavigationMenuItemLabel', () => {
         viewId: 'view-index',
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         'All Notes',
       );
     });
@@ -89,7 +114,9 @@ describe('getNavigationMenuItemLabel', () => {
         viewId: 'view-custom',
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         'My Custom View',
       );
     });
@@ -101,7 +128,9 @@ describe('getNavigationMenuItemLabel', () => {
         viewId: 'nonexistent',
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         '',
       );
     });
@@ -116,7 +145,9 @@ describe('getNavigationMenuItemLabel', () => {
         link: 'https://docs.example.com',
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         'Documentation',
       );
     });
@@ -129,7 +160,9 @@ describe('getNavigationMenuItemLabel', () => {
         link: 'https://docs.example.com',
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         'https://docs.example.com',
       );
     });
@@ -142,7 +175,9 @@ describe('getNavigationMenuItemLabel', () => {
         link: '  ',
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         'Link',
       );
     });
@@ -159,7 +194,9 @@ describe('getNavigationMenuItemLabel', () => {
         },
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         'Acme Corp',
       );
     });
@@ -171,7 +208,9 @@ describe('getNavigationMenuItemLabel', () => {
         targetRecordIdentifier: null,
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         '',
       );
     });
@@ -185,7 +224,9 @@ describe('getNavigationMenuItemLabel', () => {
         name: 'Sales',
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         'Sales',
       );
     });
@@ -197,9 +238,49 @@ describe('getNavigationMenuItemLabel', () => {
         name: null,
       };
 
-      expect(getNavigationMenuItemLabel(item, objectMetadataItems, views)).toBe(
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'en'),
+      ).toBe(
         'Folder',
       );
+    });
+  });
+
+  describe('when locale is ru-RU', () => {
+    it('should return localized object labelPlural', () => {
+      const item = {
+        ...baseItem,
+        type: NavigationMenuItemType.OBJECT,
+        targetObjectMetadataId: 'obj-3',
+      };
+
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'ru-RU'),
+      ).toBe('Задачи');
+    });
+
+    it('should return localized folder name for Workflows', () => {
+      const item = {
+        ...baseItem,
+        type: NavigationMenuItemType.FOLDER,
+        name: 'Workflows',
+      };
+
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'ru-RU'),
+      ).toBe('Процессы');
+    });
+
+    it('should return custom view name unchanged', () => {
+      const item = {
+        ...baseItem,
+        type: NavigationMenuItemType.VIEW,
+        viewId: 'view-custom',
+      };
+
+      expect(
+        getNavigationMenuItemLabel(item, objectMetadataItems, views, 'ru-RU'),
+      ).toBe('My Custom View');
     });
   });
 });

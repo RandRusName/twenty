@@ -6,27 +6,33 @@ import { getViewNavigationMenuItemLabel } from '@/navigation-menu-item/display/v
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { type View } from '@/views/types/View';
 import { NavigationMenuItemType } from 'twenty-shared/types';
+import { type AppLocale } from 'twenty-shared/translations';
 import { type NavigationMenuItem } from '~/generated-metadata/graphql';
 
 export const getNavigationMenuItemLabel = (
   item: NavigationMenuItem,
   objectMetadataItems: Pick<
     EnrichedObjectMetadataItem,
-    'id' | 'labelPlural' | 'nameSingular'
+    'id' | 'labelPlural' | 'labelSingular' | 'nameSingular' | 'isCustom'
   >[],
   views: Pick<View, 'id' | 'name' | 'objectMetadataId' | 'key'>[],
+  locale: AppLocale | string,
 ): string => {
   switch (item.type) {
     case NavigationMenuItemType.OBJECT:
-      return getObjectNavigationMenuItemLabel(item, objectMetadataItems);
+      return getObjectNavigationMenuItemLabel(
+        item,
+        objectMetadataItems,
+        locale,
+      );
     case NavigationMenuItemType.VIEW:
-      return getViewNavigationMenuItemLabel(item, views);
+      return getViewNavigationMenuItemLabel(item, views, locale);
     case NavigationMenuItemType.LINK:
       return getLinkNavigationMenuItemLabel(item);
     case NavigationMenuItemType.RECORD:
       return getRecordNavigationMenuItemLabel(item);
     case NavigationMenuItemType.FOLDER:
-      return getFolderNavigationMenuItemLabel(item);
+      return getFolderNavigationMenuItemLabel(item, locale);
     default:
       return item.name ?? '';
   }

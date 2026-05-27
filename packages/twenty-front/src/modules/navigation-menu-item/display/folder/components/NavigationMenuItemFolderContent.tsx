@@ -9,6 +9,7 @@ import { NavigationMenuItemSortableItem } from '@/navigation-menu-item/display/d
 import { useDeleteManyNavigationMenuItems } from '@/navigation-menu-item/common/hooks/useDeleteManyNavigationMenuItems';
 import { getNavigationMenuItemComputedLink } from '@/navigation-menu-item/display/utils/getNavigationMenuItemComputedLink';
 import { getNavigationMenuItemLabel } from '@/navigation-menu-item/display/utils/getNavigationMenuItemLabel';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { getNavigationMenuItemObjectNameSingular } from '@/navigation-menu-item/display/object/utils/getNavigationMenuItemObjectNameSingular';
 import { getObjectNavigationMenuItemSecondaryLabel } from '@/navigation-menu-item/display/object/utils/getObjectNavigationMenuItemSecondaryLabel';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
@@ -27,6 +28,7 @@ export const NavigationMenuItemFolderContent = ({
   folderId,
   navigationMenuItems,
 }: NavigationMenuItemFolderContentProps) => {
+  const locale = useAppLocale();
   const objectMetadataItems = useAtomStateValue(objectMetadataItemsSelector);
   const views = useAtomStateValue(viewsSelector);
   const { deleteManyNavigationMenuItems } = useDeleteManyNavigationMenuItems();
@@ -41,6 +43,7 @@ export const NavigationMenuItemFolderContent = ({
           navigationMenuItem,
           objectMetadataItems,
           views,
+          locale,
         );
         const computedLink = getNavigationMenuItemComputedLink(
           navigationMenuItem,

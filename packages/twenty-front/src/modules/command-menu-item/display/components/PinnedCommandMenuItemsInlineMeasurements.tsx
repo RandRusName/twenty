@@ -2,6 +2,7 @@ import { CommandMenuContext } from '@/command-menu-item/contexts/CommandMenuCont
 import { PINNED_COMMAND_MENU_ITEMS_GAP } from '@/command-menu-item/display/constants/PinnedCommandMenuItemsGap';
 import { interpolateCommandMenuItemFields } from '@/command-menu-item/display/utils/interpolateCommandMenuItemFields';
 import { CommandMenuButton } from '@/command-menu/components/CommandMenuButton';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { NodeDimension } from '@/ui/utilities/dimensions/components/NodeDimension';
 import { COMMAND_MENU_DEFAULT_ICON } from '@/workflow/workflow-trigger/constants/CommandMenuDefaultIcon';
 import { styled } from '@linaria/react';
@@ -34,6 +35,7 @@ export const PinnedCommandMenuItemsInlineMeasurements = ({
   pinnedCommandMenuItems,
   onPinnedCommandMenuItemDimensionChange,
 }: PinnedCommandMenuItemsInlineMeasurementsProps) => {
+  const locale = useAppLocale();
   const { getIcon } = useIcons();
   const { commandMenuContextApi } = useContext(CommandMenuContext);
 
@@ -43,6 +45,7 @@ export const PinnedCommandMenuItemsInlineMeasurements = ({
         const { iconKey, label, shortLabel } = interpolateCommandMenuItemFields(
           item,
           commandMenuContextApi,
+          locale,
         );
 
         const Icon = getIcon(iconKey, COMMAND_MENU_DEFAULT_ICON);

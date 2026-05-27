@@ -26,6 +26,7 @@ import { useSortedNavigationMenuItems } from '@/navigation-menu-item/display/hoo
 import { WorkspaceSectionContainer } from '@/navigation-menu-item/display/sections/workspace/components/WorkspaceSectionContainer';
 import { getNavigationMenuItemComputedLink } from '@/navigation-menu-item/display/utils/getNavigationMenuItemComputedLink';
 import { getNavigationMenuItemLabel } from '@/navigation-menu-item/display/utils/getNavigationMenuItemLabel';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { useOpenNavigationMenuItemInSidePanel } from '@/navigation-menu-item/edit/hooks/useOpenNavigationMenuItemInSidePanel';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import { type EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
@@ -43,6 +44,7 @@ const StyledRightIconsContainer = styled.div`
 `;
 
 export const WorkspaceSection = () => {
+  const locale = useAppLocale();
   const items = useNavigationMenuItemSectionItems();
   const { workspaceNavigationMenuItemsSorted } = useSortedNavigationMenuItems();
   const objectMetadataItems = useAtomStateValue(objectMetadataItemsSelector);
@@ -112,7 +114,12 @@ export const WorkspaceSection = () => {
       const label =
         item.type === NavigationMenuItemType.VIEW ||
         item.type === NavigationMenuItemType.OBJECT
-          ? getNavigationMenuItemLabel(item, objectMetadataItems, views)
+          ? getNavigationMenuItemLabel(
+              item,
+              objectMetadataItems,
+              views,
+              locale,
+            )
           : objectMetadataItem.labelSingular;
       openNavigationMenuItemInSidePanel({
         pageTitle: label,

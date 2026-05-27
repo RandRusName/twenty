@@ -17,6 +17,7 @@ import { LinkIconWithLinkOverlay } from '@/navigation-menu-item/display/link/com
 import { getNavigationMenuItemObjectNameSingular } from '@/navigation-menu-item/display/object/utils/getNavigationMenuItemObjectNameSingular';
 import { getNavigationMenuItemComputedLink } from '@/navigation-menu-item/display/utils/getNavigationMenuItemComputedLink';
 import { getNavigationMenuItemLabel } from '@/navigation-menu-item/display/utils/getNavigationMenuItemLabel';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { ObjectIconWithViewOverlay } from '@/navigation-menu-item/display/view/components/ObjectIconWithViewOverlay';
 import { useGetStandardObjectIcon } from '@/object-metadata/hooks/useGetStandardObjectIcon';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
@@ -28,6 +29,7 @@ export const NavigationMenuItemIcon = ({
 }: {
   navigationMenuItem: NavigationMenuItem;
 }) => {
+  const locale = useAppLocale();
   const { getIcon } = useIcons();
   const objectMetadataItems = useAtomStateValue(objectMetadataItemsSelector);
   const views = useAtomStateValue(viewsSelector);
@@ -139,6 +141,7 @@ export const NavigationMenuItemIcon = ({
     navigationMenuItem,
     objectMetadataItems,
     views,
+    locale,
   );
 
   const recordIdentifier =

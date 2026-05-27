@@ -14,6 +14,7 @@ import { getObjectMetadataForNavigationMenuItem } from '@/navigation-menu-item/d
 import { getObjectNavigationMenuItemSecondaryLabel } from '@/navigation-menu-item/display/object/utils/getObjectNavigationMenuItemSecondaryLabel';
 import { getNavigationMenuItemComputedLink } from '@/navigation-menu-item/display/utils/getNavigationMenuItemComputedLink';
 import { getNavigationMenuItemLabel } from '@/navigation-menu-item/display/utils/getNavigationMenuItemLabel';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { objectMetadataItemsSelector } from '@/object-metadata/states/objectMetadataItemsSelector';
 import type { EnrichedObjectMetadataItem } from '@/object-metadata/types/EnrichedObjectMetadataItem';
 import { NavigationDrawerSubItem } from '@/ui/navigation/navigation-drawer/components/NavigationDrawerSubItem';
@@ -44,6 +45,7 @@ export const NavigationMenuItemFolderSubItem = ({
   onClick,
   onNavigationMenuItemClick,
 }: NavigationMenuItemFolderSubItemProps) => {
+  const locale = useAppLocale();
   const isEditHighlightedInNavigationMenu =
     useIsNavigationMenuItemEditHighlighted(navigationMenuItem);
   const objectMetadataItems = useAtomStateValue(objectMetadataItemsSelector);
@@ -62,6 +64,7 @@ export const NavigationMenuItemFolderSubItem = ({
     navigationMenuItem,
     objectMetadataItems,
     views,
+    locale,
   );
   const computedLink = getNavigationMenuItemComputedLink(
     navigationMenuItem,

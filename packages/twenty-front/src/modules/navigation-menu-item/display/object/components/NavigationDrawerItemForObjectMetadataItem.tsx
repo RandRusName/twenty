@@ -8,6 +8,7 @@ import { recordIdentifierToObjectRecordIdentifier } from '@/navigation-menu-item
 import { useIdentifyActiveNavigationMenuItems } from '@/navigation-menu-item/display/hooks/useIdentifyActiveNavigationMenuItems';
 import { getNavigationMenuItemComputedLink } from '@/navigation-menu-item/display/utils/getNavigationMenuItemComputedLink';
 import { useLocalizedObjectMetadataLabels } from '@/object-metadata/hooks/useLocalizedObjectMetadataLabels';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { getNavigationMenuItemLabel } from '@/navigation-menu-item/display/utils/getNavigationMenuItemLabel';
 import { ObjectIconWithViewOverlay } from '@/navigation-menu-item/display/view/components/ObjectIconWithViewOverlay';
 import { lastVisitedViewPerObjectMetadataItemState } from '@/navigation/states/lastVisitedViewPerObjectMetadataItemState';
@@ -50,6 +51,7 @@ export const NavigationDrawerItemForObjectMetadataItem = ({
   isDragging = false,
   rightOptions,
 }: NavigationDrawerItemForObjectMetadataItemProps) => {
+  const locale = useAppLocale();
   const isLayoutCustomizationModeEnabled = useAtomStateValue(
     isLayoutCustomizationModeEnabledState,
   );
@@ -120,7 +122,12 @@ export const NavigationDrawerItemForObjectMetadataItem = ({
   const isViewWithResolvedView = isView && isDefined(view);
 
   const itemLabel = isDefined(navigationMenuItem)
-    ? getNavigationMenuItemLabel(navigationMenuItem, objectMetadataItems, views)
+    ? getNavigationMenuItemLabel(
+        navigationMenuItem,
+        objectMetadataItems,
+        views,
+        locale,
+      )
     : labelPlural;
 
   const primaryLabel =

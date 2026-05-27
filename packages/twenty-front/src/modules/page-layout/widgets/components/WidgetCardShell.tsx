@@ -2,6 +2,7 @@ import { type PageLayoutWidget } from '@/page-layout/types/PageLayoutWidget';
 import { PageLayoutWidgetForbiddenDisplay } from '@/page-layout/widgets/components/PageLayoutWidgetForbiddenDisplay';
 import { PageLayoutWidgetInvalidConfigDisplay } from '@/page-layout/widgets/components/PageLayoutWidgetInvalidConfigDisplay';
 import { WidgetContentRenderer } from '@/page-layout/widgets/components/WidgetContentRenderer';
+import { useAppLocale } from '@/localization/hooks/useAppLocale';
 import { WidgetComponentInstanceContext } from '@/page-layout/widgets/states/contexts/WidgetComponentInstanceContext';
 import { type WidgetAccessDenialInfo } from '@/page-layout/widgets/types/WidgetAccessDenialInfo';
 import { type WidgetAction } from '@/page-layout/widgets/types/WidgetAction';
@@ -12,6 +13,7 @@ import { WidgetCardHeader } from '@/page-layout/widgets/widget-card/components/W
 import { styled } from '@linaria/react';
 import { type MouseEvent, useContext } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+import { getLocalizedPageLayoutWidgetTitle } from 'twenty-shared/translations';
 import { IconLock } from 'twenty-ui/display';
 import { ThemeContext } from 'twenty-ui/theme-constants';
 import { WidgetType } from '~/generated-metadata/graphql';
@@ -65,7 +67,14 @@ export const WidgetCardShell = ({
   onMouseEnter,
   onMouseLeave,
 }: WidgetCardShellProps) => {
+  const locale = useAppLocale();
   const { theme } = useContext(ThemeContext);
+
+  const displayTitle = getLocalizedPageLayoutWidgetTitle({
+    locale,
+    title: widget.title,
+    widgetType: widget.type,
+  });
 
   const dataTestId =
     widget.type === WidgetType.FIELDS ? 'record-fields-widget' : widget.id;
@@ -95,7 +104,7 @@ export const WidgetCardShell = ({
             isResizing={isResizing}
             isReorderEnabled={isReorderEnabled}
             isDeletingWidgetEnabled={isDeletingWidgetEnabled}
-            title={widget.title}
+            title={displayTitle}
             onRemove={onRemove}
             actions={actions}
             forbiddenDisplay={
