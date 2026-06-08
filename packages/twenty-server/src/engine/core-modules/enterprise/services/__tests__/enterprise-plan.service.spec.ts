@@ -818,4 +818,55 @@ describe('EnterprisePlanService', () => {
       expect(result).toBeNull();
     });
   });
+
+  describe('IS_ENTERPRISE_ENABLED', () => {
+    const setupEnterpriseBypass = () => {
+      configGetMock.mockImplementation((key: string) => {
+        if (key === 'IS_ENTERPRISE_ENABLED') return true;
+        if (key === 'ENTERPRISE_API_URL') return MOCK_API_URL;
+
+        return undefined;
+      });
+    };
+
+    it('should enable all license checks without a JWT', async () => {
+      setupEnterpriseBypass();
+      await service.onModuleInit();
+
+      expect(service.isValid()).toBe(true);
+      expect(service.hasValidEnterpriseKey()).toBe(true);
+      expect(service.hasValidSignedEnterpriseKey()).toBe(true);
+      expect(service.hasValidEnterpriseValidityToken()).toBe(true);
+    });
+
+    it('should return valid license info without a JWT', async () => {
+      setupEnterpriseBypass();
+
+      const licenseInfo = await service.getLicenseInfo();
+
+      expect(licenseInfo).toEqual({
+        isValid: true,
+        licensee: null,
+        expiresAt: null,
+        subscriptionId: null,
+      });
+    });
+
+    it('should preserve normal behavior when bypass is disabled', async () => {
+      configGetMock.mockImplementation((key: string) => {
+        if (key === 'IS_ENTERPRISE_ENABLED') return false;
+        if (key === 'ENTERPRISE_API_URL') return MOCK_API_URL;
+
+        return undefined;
+      });
+      setupEnterpriseKey(undefined);
+      appTokenFindOneMock.mockResolvedValue(null);
+      await service.onModuleInit();
+
+      expect(service.isValid()).toBe(false);
+      expect(service.hasValidEnterpriseKey()).toBe(false);
+      expect(service.hasValidSignedEnterpriseKey()).toBe(false);
+      expect(service.hasValidEnterpriseValidityToken()).toBe(false);
+    });
+  });
 });

@@ -1567,6 +1567,15 @@ export class ConfigVariables {
 
   @ConfigVariablesMetadata({
     group: ConfigVariablesGroup.SERVER_CONFIG,
+    description:
+      'When true, all enterprise features are enabled without a license key',
+    type: ConfigVariableType.BOOLEAN,
+  })
+  @IsOptional()
+  IS_ENTERPRISE_ENABLED = false;
+
+  @ConfigVariablesMetadata({
+    group: ConfigVariablesGroup.SERVER_CONFIG,
     isSensitive: true,
     description: 'License key for the Enterprise version',
     type: ConfigVariableType.STRING,

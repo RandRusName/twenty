@@ -127,12 +127,24 @@ export class EnterprisePlanService implements OnModuleInit {
     );
   }
 
+  private isEnterpriseBypassEnabled(): boolean {
+    return this.twentyConfigService.get('IS_ENTERPRISE_ENABLED') === true;
+  }
+
   hasValidSignedEnterpriseKey(): boolean {
+    if (this.isEnterpriseBypassEnabled()) {
+      return true;
+    }
+
     this.refreshKeyPayload();
     return isDefined(this.cachedKeyPayload);
   }
 
   hasValidEnterpriseValidityToken(): boolean {
+    if (this.isEnterpriseBypassEnabled()) {
+      return true;
+    }
+
     if (isDefined(this.cachedValidityPayload)) {
       const now = Math.floor(Date.now() / 1000);
 
@@ -143,10 +155,18 @@ export class EnterprisePlanService implements OnModuleInit {
   }
 
   hasValidEnterpriseKey(): boolean {
+    if (this.isEnterpriseBypassEnabled()) {
+      return true;
+    }
+
     return this.hasValidSignedEnterpriseKey() || this.checkLegacyKey();
   }
 
   isValid(): boolean {
+    if (this.isEnterpriseBypassEnabled()) {
+      return true;
+    }
+
     return this.hasValidEnterpriseValidityToken();
   }
 
@@ -160,6 +180,15 @@ export class EnterprisePlanService implements OnModuleInit {
   }
 
   async getLicenseInfo(): Promise<EnterpriseLicenseInfo> {
+    if (this.isEnterpriseBypassEnabled()) {
+      return {
+        isValid: true,
+        licensee: null,
+        expiresAt: null,
+        subscriptionId: null,
+      };
+    }
+
     this.refreshKeyPayload();
     await this.loadValidityToken();
 

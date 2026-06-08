@@ -1,0 +1,101 @@
+name: twenty
+
+x-twenty-image: &twenty-image
+  image: ${TWENTY_IMAGE:-twenty-local}:${TAG:-latest}
+  build:
+    context: ${TWENTY_BUILD_CONTEXT:-/opt/twenty/releases/current}
+    dockerfile: packages/twenty-docker/twenty/Dockerfile
+    target: twenty
+
+x-twenty-environment: &twenty-environment
+  NODE_ENV: production
+  NODE_PORT: 3000
+  PG_DATABASE_URL: ${PG_DATABASE_URL:-postgres://${PG_DATABASE_USER:-postgres}:${PG_DATABASE_PASSWORD:?PG_DATABASE_PASSWORD is required}@db:5432/${PG_DATABASE_NAME:-default}}
+  SERVER_URL: ${SERVER_URL:?SERVER_URL is required}
+  REDIS_URL: ${REDIS_URL:-redis://redis:6379}
+  STORAGE_TYPE: ${STORAGE_TYPE:-local}
+  STORAGE_LOCAL_PATH: ${STORAGE_LOCAL_PATH:-.local-storage}
+  STORAGE_S3_REGION: ${STORAGE_S3_REGION:-}
+  STORAGE_S3_NAME: ${STORAGE_S3_NAME:-}
+  STORAGE_S3_ENDPOINT: ${STORAGE_S3_ENDPOINT:-}
+  STORAGE_S3_ACCESS_KEY_ID: ${STORAGE_S3_ACCESS_KEY_ID:-}
+  STORAGE_S3_SECRET_ACCESS_KEY: ${STORAGE_S3_SECRET_ACCESS_KEY:-}
+  STORAGE_S3_PRESIGNED_URL_ENABLED: ${STORAGE_S3_PRESIGNED_URL_ENABLED:-false}
+  STORAGE_S3_PRESIGNED_URL_BASE: ${STORAGE_S3_PRESIGNED_URL_BASE:-}
+  ENCRYPTION_KEY: ${ENCRYPTION_KEY:?ENCRYPTION_KEY is required}
+  FALLBACK_ENCRYPTION_KEY: ${FALLBACK_ENCRYPTION_KEY:-}
+  APP_SECRET: ${APP_SECRET:?APP_SECRET is required}
+  TRUST_PROXY: ${TRUST_PROXY:-loopback, linklocal, uniquelocal}
+  APPLICATION_LOG_DRIVER: ${APPLICATION_LOG_DRIVER:-CONSOLE}
+  IS_BILLING_ENABLED: ${IS_BILLING_ENABLED:-false}
+  IS_ENTERPRISE_ENABLED: ${IS_ENTERPRISE_ENABLED:-true}
+
+services:
+  server:
+    <<: *twenty-image
+    volumes:
+      - server-local-data:/app/packages/twenty-server/.local-storage
+    ports:
+      - "${NODE_PORT:-3000}:3000"
+    environment:
+      <<: *twenty-environment
+      DISABLE_DB_MIGRATIONS: ${DISABLE_DB_MIGRATIONS:-false}
+      DISABLE_CRON_JOBS_REGISTRATION: ${DISABLE_CRON_JOBS_REGISTRATION:-false}
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:3000/healthz >/dev/null 2>&1 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
+  worker:
+    <<: *twenty-image
+    command: ["yarn", "worker:prod"]
+    volumes:
+      - server-local-data:/app/packages/twenty-server/.local-storage
+    environment:
+      <<: *twenty-environment
+      DISABLE_DB_MIGRATIONS: "true"
+      DISABLE_CRON_JOBS_REGISTRATION: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      server:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:16
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${PG_DATABASE_NAME:-default}
+      POSTGRES_PASSWORD: ${PG_DATABASE_PASSWORD:?PG_DATABASE_PASSWORD is required}
+      POSTGRES_USER: ${PG_DATABASE_USER:-postgres}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PG_DATABASE_USER:-postgres} -h localhost -d ${PG_DATABASE_NAME:-default}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    command: ["--maxmemory-policy", "noeviction"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  db-data:
+  server-local-data:
